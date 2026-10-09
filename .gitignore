@@ -11,3 +11,24 @@ logs/
 *.log
 .claude-replay.*
 .tmp-*
+
+# Local tooling / editor files (not needed to deploy)
+.claude/
+AGENTS.md
+CLAUDE.md
+.mise.toml
+pnpm-lock.yaml
+.figma/make/*
+!.figma/make/site.json
+scripts/pencil-cursor.py
+
+# Unused stock photos (kept locally only)
+public/stock/photo-1441984904996-e0b6ba687e04-*
+public/stock/photo-1450101499163-c8848c66ca85-*
+public/stock/photo-1487958449943-2429e8be8625-*
+public/stock/photo-1564013799919-ab600027ffc6-*
+public/stock/photo-1567943183748-3a7542120c90-*
+public/stock/photo-1613490493576-7fde63acd811-*
+public/stock/photo-1646987916641-1f3c8992daa2-*
+public/stock/photo-1648881806148-e5c51179c826-*
+public/stock/photo-1783705094622-f2c01a9787b5-*
