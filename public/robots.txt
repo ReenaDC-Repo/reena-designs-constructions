@@ -31,4 +31,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://reenabuild.com/sitemap.xml
+Sitemap: https://www.reenadc.com/sitemap.xml

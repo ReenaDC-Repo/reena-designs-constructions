@@ -48,7 +48,7 @@
 export const SITE = {
   name: "Reena Designs & Constructions",
   /** Canonical origin, no trailing slash. Override per deploy with VITE_SITE_URL. */
-  origin: (import.meta.env.VITE_SITE_URL || "https://reenabuild.com").replace(/\/+$/, ""),
+  origin: (import.meta.env.VITE_SITE_URL || "https://www.reenadc.com").replace(/\/+$/, ""),
   /** REPLACE — placeholder. */
   email: "Reena.dc65@gmail.com",
   /** REPLACE — placeholder, sequential dummy digits. */
