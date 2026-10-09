@@ -140,7 +140,7 @@ function noscriptBlock(route) {
 function render(route) {
   const url = canonicalUrl(route.path)
   const title = route.title
-  const image = route.images?.[0]?.src ?? `${ORIGIN}/og-image.png`
+  const image = route.images?.[0]?.src ?? `${ORIGIN}/og-share.png`
 
   let html = shell.replace(/<title>[\s\S]*?<\/title>/i, `<title>${esc(title)}</title>`)
 
@@ -176,4 +176,19 @@ for (const route of ROUTES) {
   written++
 }
 
-console.log(`prerender — ${written} route shells stamped into dist/`)
+// dist/404.html — served with a real 404 status by Vercel for any path that
+// has no shell. Without it the host's SPA fallback answered every bogus URL
+// with 200 and the homepage head, which Search Console reports as soft 404s
+// and duplicate copies of the homepage. The body is the same empty root, so
+// React still mounts and the router renders the NotFound page.
+{
+  let html = shell
+  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>Page not found | ${SITE_NAME.replace(/&/g, "&amp;")}</title>`)
+  html = html.replace(/\s*<link rel="(?:canonical|alternate)"[^>]*>/g, '')
+  html = html.replace(/\s*<script type="application\/ld\+json"[\s\S]*?<\/script>/g, '')
+  html = html.replace(/<meta name="robots"[^>]*>/, '')
+  html = html.replace('</head>', '    <meta name="robots" content="noindex" />\n  </head>')
+  writeFileSync(join(dist, '404.html'), html)
+}
+
+console.log(`prerender — ${written} route shells stamped into dist/ (+ 404.html)`)

@@ -95,7 +95,7 @@ export default function AboutStrip() {
             ))}
           </ul>
 
-          {/* CTA button & 15+ years stat */}
+          {/* CTA button & 30+ years stat */}
           <div className="mt-9 flex flex-wrap items-center gap-6">
             <Link
               to="/about"

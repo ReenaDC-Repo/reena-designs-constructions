@@ -89,7 +89,7 @@ export const SITE = {
   foundingYear: "1990",
   /** Absolute paths, resolved against `origin` where schema needs a URL. */
   logoPath: "/apple-touch-icon.png",
-  ogImagePath: "/og-image.png",
+  ogImagePath: "/og-share.png",
 } as const
 
 /**
