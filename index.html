@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="<!-- figma:lang -->">
+  <head>
+    <!-- figma:head-start -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><!-- figma:title --></title>
+    <!-- figma:head-end -->
+
+    <!--
+      Fonts load here rather than via `@import` in index.css. A CSS @import is
+      discovered only after the stylesheet itself has downloaded and parsed,
+      which serialises two round trips before any text can paint. The
+      preconnects warm both hosts (the CSS comes from googleapis, the font
+      files from gstatic) while the HTML is still being parsed.
+      Weights trimmed from six to the four actually used by the app.
+    -->
+    <!-- Self-hosted wordmark faces. Preloaded because the lockup is the
+         first thing painted on every page, so a late swap is visible. -->
+    <link rel="preload" href="/fonts/allura-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap"
+    />
+
+    <!-- Unsplash serves every gallery image; warming the connection saves a
+         DNS + TLS handshake on the first card that scrolls into view. -->
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!--
+      Fallback head.
+
+      Everything below is overwritten per route by <Seo> once React mounts.
+      It exists for the crawlers and scrapers that never run the JavaScript:
+      Facebook, WhatsApp, LinkedIn and X read the card tags from the raw HTML
+      and would otherwise share every URL as an untitled page. `pnpm build`
+      also stamps a per-route copy of this shell into dist/<route>/index.html
+      (see scripts/prerender.mjs), so a deep link arrives with its own title
+      already in place rather than the homepage's.
+    -->
+    <meta
+      name="keywords"
+      content="construction company in Medinipur, best construction company in Medinipur, building contractors Paschim Medinipur, civil contractors Midnapore, house construction cost West Bengal, turnkey construction company India, architectural design Medinipur, architect in Medinipur, interior designer in Medinipur, modular kitchen Medinipur, 3D elevation design West Bengal, home renovation contractor Medinipur, residential construction Kharagpur, commercial interior designer Kharagpur, RCC contractor West Bengal, structural engineer Medinipur, builders Ghatal, construction company Jhargram, contractors Belda, contractors Debra, contractors Salboni, contractors Garhbeta, contractors Chandrakona, contractors Daspur, contractors Narayangarh, construction company Tamluk, interior fit-out Haldia, construction company Bankura, interior design Kolkata"
+    />
+    <!--
+      max-snippet:-1 and max-video-preview:-1 lift the caps Google otherwise
+      applies to how much of the page it may quote in a result. For a services
+      site the longer snippet is the click.
+    -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="author" content="Reena Designs & Constructions" />
+    <meta name="publisher" content="Reena Designs & Constructions" />
+    <meta name="theme-color" content="#1a2744" />
+    <link rel="canonical" href="https://reenabuild.com/" />
+    <link rel="alternate" hreflang="en-IN" href="https://reenabuild.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://reenabuild.com/" />
+
+    <!--
+      Geo tags. Not a Google ranking signal — proximity comes from the verified
+      Business Profile — but Bing, Apple Maps' crawler and several AI indexers
+      read them, and they disambiguate a town whose name is spelt three ways
+      (Medinipur / Midnapore / Midnapur).
+    -->
+    <meta name="geo.region" content="IN-WB" />
+    <meta name="geo.placename" content="Medinipur, Paschim Medinipur, West Bengal" />
+    <meta name="geo.position" content="22.4257;87.3199" />
+    <meta name="ICBM" content="22.4257, 87.3199" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Reena Designs & Constructions" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="https://reenabuild.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Reena Designs & Constructions — construction, architecture and interior design in Medinipur, West Bengal" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://reenabuild.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Reena Designs & Constructions — construction and interior design in Medinipur, West Bengal" />
+
+    <!--
+      Site verification.
+
+      Replace the placeholder with the token from Search Console and the site
+      can be submitted for indexing, which is the single fastest way to start
+      appearing in results at all. Leaving the tag out entirely means waiting
+      for an organic crawl. Bing Webmaster Tools is worth the same five
+      minutes — it also feeds DuckDuckGo and several AI answer engines.
+    -->
+    <!-- <meta name="google-site-verification" content="REPLACE_WITH_SEARCH_CONSOLE_TOKEN" /> -->
+    <!-- <meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN" /> -->
+
+    <!--
+      Site-wide entity graph.
+
+      One `@graph` with stable `@id`s, so the eighteen routes read as a single
+      business rather than eighteen unrelated ones. This hand-written copy only
+      serves the dev server: `pnpm build` (scripts/prerender.mjs) replaces the
+      body of this element in every shipped page with the graph generated by
+      `siteGraph()` in src/data/routes.ts, and adds the page's own graph
+      (WebPage, BreadcrumbList, …) beside it as #seo-page-jsonld.
+
+      `sameAs` is the part that matters most here — it is what tells Google the
+      Facebook, Instagram, LinkedIn and YouTube accounts belong to this domain,
+      which is a precondition for a knowledge panel ever forming.
+
+      `aggregateRating` was removed deliberately and must stay out: Google's
+      structured-data policy requires rating markup to be backed by reviews
+      genuinely collected from customers and visible on the same page. The six
+      testimonials on this site are hardcoded marketing copy, so a 4.9/200
+      claim here risks a manual action against the whole domain. Add it back
+      once real reviews are being collected — and emit them as `review` items
+      alongside it.
+    -->
+    <script type="application/ld+json" id="seo-site-jsonld">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["GeneralContractor", "HomeAndConstructionBusiness"],
+            "@id": "https://reenabuild.com/#organization",
+            "name": "Reena Designs & Constructions",
+            "alternateName": ["Reena Designs", "Reena Constructions"],
+            "url": "https://reenabuild.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://reenabuild.com/#logo",
+              "url": "https://reenabuild.com/apple-touch-icon.png",
+              "caption": "Reena Designs & Constructions"
+            },
+            "image": "https://reenabuild.com/og-image.png",
+            "description": "Design-led building construction, architectural design, structural engineering, interior design, renovation and turnkey project delivery. Based in Medinipur, Paschim Medinipur, West Bengal, serving Kharagpur, Ghatal, Jhargram, Tamluk, Kolkata and clients across India.",
+            "slogan": "Design to handover, under one contract.",
+            "foundingDate": "2010",
+            "email": "info@reenabuild.com",
+            "telephone": "+919876543210",
+            "priceRange": "\u20b9\u20b9",
+            "currenciesAccepted": "INR",
+            "paymentAccepted": "Cash, Bank Transfer, UPI, Cheque",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Medinipur",
+              "addressLocality": "Medinipur",
+              "addressRegion": "Paschim Medinipur, West Bengal",
+              "postalCode": "721101",
+              "addressCountry": "IN"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": 22.4257, "longitude": 87.3199 },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=22.4257,87.3199",
+            "areaServed": [
+              "Medinipur", "Midnapore", "Midnapur", "Paschim Medinipur", "Kharagpur", "Ghatal",
+              "Chandrakona", "Garhbeta", "Salboni", "Keshpur", "Debra", "Daspur", "Sabang",
+              "Pingla", "Narayangarh", "Belda", "Dantan", "Jhargram", "Tamluk", "Haldia",
+              "Bankura", "Kolkata", "Howrah", "West Bengal", "India"
+            ],
+            "knowsAbout": [
+              "Building construction", "Residential construction", "Commercial construction",
+              "Architectural design", "Structural engineering", "RCC construction",
+              "Interior design", "Modular kitchen design", "3D elevation design",
+              "Home renovation", "Turnkey project delivery",
+              "Municipal building approvals in West Bengal"
+            ],
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "telephone": "+919876543210",
+                "email": "info@reenabuild.com",
+                "areaServed": "IN",
+                "availableLanguage": ["English", "Hindi", "Bengali"]
+              }
+            ],
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "09:30",
+              "closes": "19:00"
+            },
+            "sameAs": [
+              "https://facebook.com/reenadesigns",
+              "https://instagram.com/reenadesigns",
+              "https://linkedin.com/company/reena-designs-constructions",
+              "https://youtube.com/@reenadesigns"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://reenabuild.com/#website",
+            "url": "https://reenabuild.com/",
+            "name": "Reena Designs & Constructions",
+            "description": "Construction, architecture and interior design company in Medinipur, Paschim Medinipur, West Bengal.",
+            "publisher": { "@id": "https://reenabuild.com/#organization" },
+            "inLanguage": "en-IN"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!-- figma:body-start -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- figma:body-end -->
+  </body>
+</html>

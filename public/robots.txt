@@ -1,0 +1,34 @@
+# Everything on this site is meant to be indexed. Query-string variants are
+# left crawlable on purpose: blocking them would stop Google seeing the
+# canonical tag that folds them back into the clean URL.
+User-agent: *
+Allow: /
+
+# The Sitemap line below is rewritten to this deploy's origin on every build
+# (scripts/gen-sitemap.mjs).
+
+# Image results are a real share of the traffic a construction portfolio gets,
+# so the galleries are explicitly open to the image crawler.
+User-agent: Googlebot-Image
+Allow: /
+
+# The AI answer engines are a growing share of "who builds houses in Medinipur"
+# style questions, and each reads a different token. Listed explicitly so the
+# decision to allow them is a visible one rather than an accident of the
+# wildcard above — flip any of these to Disallow if that changes.
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://reenabuild.com/sitemap.xml

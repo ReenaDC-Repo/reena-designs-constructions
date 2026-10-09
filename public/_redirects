@@ -1,0 +1,5 @@
+# Redirect-only paths, answered by the server with a real 301 so crawlers
+# never index them; the client-side <Navigate> in App.tsx is the fallback.
+/our-work/interior   /our-work/interior/residential  301
+
+/*    /index.html   200
