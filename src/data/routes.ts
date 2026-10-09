@@ -103,9 +103,9 @@ function gallery(
 export const ROUTES: RouteSeo[] = [
   {
     path: "/",
-    title: "Construction & Interior Design in Medinipur | Reena Designs",
+    title: "Reena Designs & Constructions | Construction in Medinipur",
     description:
-      "Design-led house construction, architecture, interiors and renovation in Medinipur, Paschim Medinipur. 250+ projects, 30+ years, completion date in contract.",
+      "Reena Designs & Constructions: house construction, architecture, interiors and renovation in Medinipur, West Bengal. 250+ projects, 30+ years of experience.",
     heading: "Your vision, Our creation",
     subheading: "Construction & Interior Design Company",
     crumbs: [HOME],
