@@ -7,9 +7,11 @@ function hasChildren(item: NavDropdownItem): item is NavChild {
   return "children" in item && Array.isArray(item.children)
 }
 
-function DropdownMenu({ items }: { items: readonly NavDropdownItem[] }) {
+function DropdownMenu({ items, onNavigate }: { items: readonly NavDropdownItem[]; onNavigate: () => void }) {
   return (
-    <div className="absolute top-full left-0 z-50 min-w-56 pt-2">
+    // Any link click closes the menu — including one to the page already
+    // open, where no route change would close it.
+    <div className="absolute top-full left-0 z-50 min-w-56 pt-2" onClick={onNavigate}>
       <div className="border-[1.5px] border-hairline bg-white py-2 shadow-2xl">
         {items.map((item) =>
           hasChildren(item) ? (
@@ -59,6 +61,10 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const dropWrapRef = useRef<HTMLDivElement>(null)
+  // Touch has no hover, so the first tap on "Our Work" opens the dropdown and
+  // only a second tap follows the link. Decided on pointerdown, before the
+  // emulated mouseenter and focus that a tap fires have already opened it.
+  const tapOpensDropRef = useRef(false)
 
   useEffect(() => {
     setMenuOpen(false)
@@ -137,13 +143,27 @@ export default function Nav() {
                 onMouseEnter={() => setDropOpen(true)}
                 onMouseLeave={() => setDropOpen(false)}
                 onFocus={() => setDropOpen(true)}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setDropOpen(false)
+                }}
               >
                 <Link
                   to={link.href}
                   aria-haspopup="true"
                   aria-expanded={dropOpen}
                   aria-current={isActive(link.href) ? "page" : undefined}
-                  onClick={() => setDropOpen(false)}
+                  onPointerDown={(e) => {
+                    tapOpensDropRef.current = e.pointerType !== "mouse" && !dropOpen
+                  }}
+                  onClick={(e) => {
+                    if (tapOpensDropRef.current) {
+                      tapOpensDropRef.current = false
+                      e.preventDefault()
+                      setDropOpen(true)
+                      return
+                    }
+                    setDropOpen(false)
+                  }}
                   className={`font-500 relative flex items-center gap-1 pb-0.5 text-sm transition-colors ${
                     isActive(link.href) ? "text-brand-ink" : hasBg ? "text-slate-800" : "text-white"
                   }`}
@@ -163,7 +183,7 @@ export default function Nav() {
                     <span className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-brand" />
                   )}
                 </Link>
-                {dropOpen && <DropdownMenu items={link.dropdown} />}
+                {dropOpen && <DropdownMenu items={link.dropdown} onNavigate={() => setDropOpen(false)} />}
               </div>
             ) : (
               <Link
@@ -224,6 +244,10 @@ export default function Nav() {
         <div
           id="mobile-menu"
           className="flex flex-col gap-1 border-t border-slate-200 bg-white/97 px-6 py-4 md:hidden"
+          // Close on any link tap, even to the current page (no route change).
+          onClick={(e) => {
+            if ((e.target as HTMLElement).closest("a")) setMenuOpen(false)
+          }}
         >
           {NAV_LINKS.map((link) =>
             link.dropdown ? (

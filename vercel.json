@@ -6,7 +6,7 @@
   "redirects": [
     {
       "source": "/our-work/projects",
-      "destination": "/our-work/projects/successful",
+      "destination": "/our-work",
       "permanent": true
     },
     {
