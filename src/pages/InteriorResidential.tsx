@@ -188,7 +188,7 @@ export default function InteriorResidential() {
               <span className="relative block aspect-[4/3] overflow-hidden">
                 <img
                   src={p.img}
-                  alt={`${p.title} — ${p.room.toLowerCase()} interior design by Reena Designs & Constructions, Medinipur`}
+                  alt={`${p.title} — ${p.room.toLowerCase()} interior design by Reena Design & Construction, Medinipur`}
                   width={600}
                   height={450}
                   loading="lazy"
@@ -341,7 +341,7 @@ export default function InteriorResidential() {
               <div className="relative min-h-[14rem] bg-slate-100 sm:min-h-[20rem] lg:min-h-0">
                 <img
                   src={openProject.img}
-                  alt={`${openProject.title} — ${openProject.room.toLowerCase()} interior by Reena Designs & Constructions`}
+                  alt={`${openProject.title} — ${openProject.room.toLowerCase()} interior by Reena Design & Construction`}
                   /* Eager: the visitor has just clicked to open this, so
                      deferring it only shows them an empty panel. */
                   decoding="async"

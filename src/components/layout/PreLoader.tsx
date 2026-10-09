@@ -38,7 +38,7 @@ export default function PreLoader() {
   return (
     <div
       role="status"
-      aria-label="Loading Reena Designs & Constructions"
+      aria-label="Loading Reena Design & Construction"
       className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-700 ${
         leaving ? "pointer-events-none opacity-0" : "opacity-100"
       }`}

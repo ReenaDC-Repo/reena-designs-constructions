@@ -409,7 +409,7 @@ export default function HeroBlueprint() {
           20 m
         </text>
         <text className="bp-fade" x="1174" y="630" fill="var(--color-navy)" fontSize="10.5" style={{ ["--dd" as string]: "2.25s", ["--o" as string]: 0.78 }}>
-          REENA DESIGNS &amp; CONSTRUCTIONS
+          REENA DESIGN &amp; CONSTRUCTION
         </text>
         <text className="bp-fade" x="1174" y="676" fill="var(--color-navy)" fontSize="9" style={{ ["--dd" as string]: "2.3s", ["--o" as string]: 0.5 }}>
           SITE PLAN / ELEVATION

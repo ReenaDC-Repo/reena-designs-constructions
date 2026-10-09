@@ -62,7 +62,7 @@ export default function AboutStrip() {
           <SectionTitle
             level="display"
             align="left"
-            eyebrow="About Reena Designs & Constructions"
+            eyebrow="About Reena Design & Construction"
             title="Top trusted Construction and Design Company"
             className="mb-0"
           />

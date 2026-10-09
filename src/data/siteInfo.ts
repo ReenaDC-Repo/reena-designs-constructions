@@ -46,7 +46,7 @@
  */
 
 export const SITE = {
-  name: "Reena Designs & Constructions",
+  name: "Reena Design & Construction",
   /** Canonical origin, no trailing slash. Override per deploy with VITE_SITE_URL. */
   origin: (import.meta.env.VITE_SITE_URL || "https://www.reenadc.com").replace(/\/+$/, ""),
   /** REPLACE — placeholder. */
@@ -59,7 +59,7 @@ export const SITE = {
   /** REPLACE — placeholder. */
   whatsappNumber: "+91 76791 24694",
   /** REPLACE — the number in this URL must match whatsappNumber. */
-  whatsappHref: "https://wa.me/917679124694?text=Hello%20Reena%20Designs%2C%20I%20would%20like%20to%20inquire%20about%20a%20construction%20or%20interior%20project.",
+  whatsappHref: "https://wa.me/917679124694?text=Hello%20Reena%20Design%2C%20I%20would%20like%20to%20inquire%20about%20a%20construction%20or%20interior%20project.",
   hours: "Mon – Sat · 9:00 AM – 9:00 PM",
   address: {
     street: "Near Sitala Mandir, Rangamati",

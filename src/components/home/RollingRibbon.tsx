@@ -12,7 +12,7 @@ export default function RollingRibbon() {
       <div className="relative z-30 w-[130%] -left-[15%] -rotate-[2.2deg] shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
         <Link
           to="/contact"
-          aria-label="Contact Reena Designs & Constructions"
+          aria-label="Contact Reena Design & Construction"
           className="group block overflow-hidden bg-[#ede4d4] border-y border-stone-400/40 py-2 md:py-2.5 transition-colors hover:bg-[#f6eee0]"
         >
           <div className="flex w-max animate-ribbon-left pause-on-hover">

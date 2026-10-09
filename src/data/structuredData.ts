@@ -99,7 +99,7 @@ export function organizationSchema(): Json {
     "@type": ["GeneralContractor", "HomeAndConstructionBusiness"],
     "@id": ORG_ID,
     name: SITE.name,
-    alternateName: ["Reena Designs", "Reena Constructions", "Reena Designs and Constructions"],
+    alternateName: ["Reena Design", "Reena Construction", "Reena Design and Construction"],
     url: `${SITE.origin}/`,
     logo: {
       "@type": "ImageObject",

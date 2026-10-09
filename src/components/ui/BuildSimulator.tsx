@@ -8,7 +8,7 @@ const TICK = 2800
 
 /**
  * Interactive build simulator.
- * Redesigned in the precision architectural design language of Reena Designs & Constructions:
+ * Redesigned in the precision architectural design language of Reena Design & Construction:
  * clean technical framing, executive client deliverables, and an interactive CAD timeline.
  */
 export default function BuildSimulator() {

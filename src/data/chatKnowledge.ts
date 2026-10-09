@@ -26,7 +26,7 @@ export const ANSWERS: Answer[] = [
   {
     id: "greeting",
     keys: ["hi", "hii", "hey", "hello", "helo", "namaste", "namaskar", "good morning", "good afternoon", "good evening", "yo", "hola"],
-    text: "Hello! 👋 Welcome to Reena Designs & Constructions. I can help with costs, timelines, services, materials or booking a site visit. What would you like to know?",
+    text: "Hello! 👋 Welcome to Reena Design & Construction. I can help with costs, timelines, services, materials or booking a site visit. What would you like to know?",
     next: ["What does it cost?", "What services do you offer?"],
     instant: true,
   },

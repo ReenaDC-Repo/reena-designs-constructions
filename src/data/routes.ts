@@ -103,9 +103,9 @@ function gallery(
 export const ROUTES: RouteSeo[] = [
   {
     path: "/",
-    title: "Reena Designs & Constructions | Construction in Medinipur",
+    title: "Reena Design & Construction | Construction in Medinipur",
     description:
-      "Reena Designs & Constructions: house construction, architecture, interiors and renovation in Medinipur, West Bengal. 250+ projects, 30+ years of experience.",
+      "Reena Design & Construction: house construction, architecture, interiors and renovation in Medinipur, West Bengal. 250+ projects, 30+ years of experience.",
     heading: "Your vision, Our creation",
     subheading: "Construction & Interior Design Company",
     crumbs: [HOME],
@@ -120,9 +120,9 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/about",
-    title: "About Us: Medinipur Builders Since the 1990s | Reena Designs",
+    title: "About Us: Medinipur Builders Since the 1990s | Reena Design",
     description:
-      "The architects, engineers and designers behind Reena Designs & Constructions: our story, values and the team building across Paschim Medinipur.",
+      "The architects, engineers and designers behind Reena Design & Construction: our story, values and the team building across Paschim Medinipur.",
     heading: "ABOUT US",
     subheading: "Architects, engineers & builders in Paschim Medinipur since the 1990s",
     crumbs: [HOME, { label: "About Us" }],
@@ -133,7 +133,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/services",
-    title: "Construction & Interior Design Services | Reena Designs",
+    title: "Construction & Interior Design Services | Reena Design",
     description:
       "Residential and commercial construction, architecture, structural engineering, renovation, interiors, 3D elevation and turnkey delivery from one Medinipur team.",
     heading: "OUR SERVICES",
@@ -147,7 +147,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/whats-included",
-    title: "What's in a House Construction Quote? | Reena Designs",
+    title: "What's in a House Construction Quote? | Reena Design",
     description:
       "Sand, TMT bar, bricks and labour — the four heads that carry a house construction quotation in West Bengal, every grade named, plus what is not included.",
     heading: "WHAT'S INCLUDED",
@@ -159,7 +159,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/our-work",
-    title: "Our Work — Construction & Interior Portfolio | Reena Designs",
+    title: "Our Work — Construction & Interior Portfolio | Reena Design",
     description:
       "Completed and ongoing construction, architecture, interior, 3D elevation and renovation projects across Medinipur, Kharagpur and Paschim Medinipur.",
     heading: "OUR WORK",
@@ -172,7 +172,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/our-work/interior/residential",
-    title: "Home Interior Designer in Medinipur | Reena Designs",
+    title: "Home Interior Designer in Medinipur | Reena Design",
     description:
       "Living rooms, bedrooms, modular kitchens and pooja rooms designed in 3D, quoted by material grade and built by our own carpenters and electricians in Medinipur.",
     heading: "RESIDENTIAL INTERIOR",
@@ -193,7 +193,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/our-work/interior/commercial",
-    title: "Commercial Interior Design in Medinipur | Reena Designs",
+    title: "Commercial Interior Design in Medinipur | Reena Design",
     description:
       "Office, restaurant, retail, hotel and institutional interiors delivered on commercial timelines with minimal disruption, across Medinipur, Kharagpur and Bengal.",
     heading: "COMMERCIAL INTERIOR",
@@ -218,7 +218,7 @@ export const ROUTES: RouteSeo[] = [
     "EXTERIOR DESIGN",
     "Exterior Design",
     "Exterior design gallery",
-    "House Exterior & Facade Design, Medinipur | Reena Designs",
+    "House Exterior & Facade Design, Medinipur | Reena Design",
     "House elevation & facade design in Medinipur",
     "Front elevations, facades, boundary walls and landscaping for houses, apartments and commercial buildings in Medinipur, Kharagpur and Paschim Medinipur.",
     exteriorImgs,
@@ -228,7 +228,7 @@ export const ROUTES: RouteSeo[] = [
     "ARCHITECTURE GALLERY",
     "Architecture Gallery",
     "Architecture gallery",
-    "Architect & House Plans in Medinipur | Reena Designs",
+    "Architect & House Plans in Medinipur | Reena Design",
     "House plans & sanction drawings in Paschim Medinipur",
     "Site-responsive house plans, massing studies and sanction-ready drawings, with municipal and panchayat approvals filed for you across Paschim Medinipur.",
     archImgs,
@@ -238,7 +238,7 @@ export const ROUTES: RouteSeo[] = [
     "3D DESIGN & ELEVATION",
     "3D Design & Elevation",
     "3D design and elevation gallery",
-    "3D Front Elevation Design in Medinipur | Reena Designs",
+    "3D Front Elevation Design in Medinipur | Reena Design",
     "3D front elevation design before construction starts",
     "3D front elevation and exterior visualisation, so you approve the finished building before construction starts in Medinipur and across West Bengal.",
     d3Imgs,
@@ -248,7 +248,7 @@ export const ROUTES: RouteSeo[] = [
     "RENOVATION PROJECTS",
     "Renovation Projects",
     "Renovation projects gallery",
-    "Home Renovation Contractor in Medinipur | Reena Designs",
+    "Home Renovation Contractor in Medinipur | Reena Design",
     "Home renovation & remodelling in Medinipur",
     "Home renovation, structural retrofits, floor additions and full remodelling across Medinipur — modernising older buildings without weakening the structure.",
     renoImgs,
@@ -256,9 +256,9 @@ export const ROUTES: RouteSeo[] = [
 
   {
     path: "/our-work/testimonials",
-    title: "Client Testimonials — Builders in Medinipur | Reena Designs",
+    title: "Client Testimonials — Builders in Medinipur | Reena Design",
     description:
-      "Client testimonials for Reena Designs & Constructions are coming soon: homeowners and business owners on building with us, in their own words.",
+      "Client testimonials for Reena Design & Construction are coming soon: homeowners and business owners on building with us, in their own words.",
     heading: "CLIENT TESTIMONIALS",
     subheading: "Coming soon",
     crumbs: [HOME, OUR_WORK, { label: "Client Testimonials" }],
@@ -268,7 +268,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/learn-from-us",
-    title: "AutoCAD, Revit & SketchUp Training Medinipur | Reena Designs",
+    title: "AutoCAD, Revit & SketchUp Training Medinipur | Reena Design",
     description:
       "Learn AutoCAD, Revit, SketchUp, Primavera P6, STAAD.Pro, ETABS, Lumion and V-Ray from working architects and engineers at our design studio in Medinipur.",
     heading: "LEARN WITH US",
@@ -280,9 +280,9 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/careers",
-    title: "Construction & Design Jobs in Medinipur | Reena Designs",
+    title: "Construction & Design Jobs in Medinipur | Reena Design",
     description:
-      "Open roles at Reena Designs & Constructions in site engineering, draughting, interior design and structural engineering, based in Medinipur, Paschim Medinipur.",
+      "Open roles at Reena Design & Construction in site engineering, draughting, interior design and structural engineering, based in Medinipur, Paschim Medinipur.",
     heading: "CAREERS",
     subheading: "Construction & design jobs in Medinipur",
     crumbs: [HOME, { label: "Careers" }],
@@ -292,7 +292,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/contact",
-    title: "Contact Us — Free Site Visit in Medinipur | Reena Designs",
+    title: "Contact Us — Free Site Visit in Medinipur | Reena Design",
     description: `Talk to us about your build: free site visit across Paschim Medinipur, an itemised quotation and a written completion date. Call ${SITE.phones[0]}.`,
     heading: "CONTACT US",
     subheading: "Free site visit & itemised quote in Paschim Medinipur",
@@ -308,7 +308,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/faq",
-    title: "House Construction FAQ — Cost & Approvals | Reena Designs",
+    title: "House Construction FAQ — Cost & Approvals | Reena Design",
     description:
       "Straight answers on house construction cost, timelines, municipal approvals, materials, payment stages and warranty in Medinipur, Paschim Medinipur.",
     heading: "FREQUENTLY ASKED QUESTIONS",
@@ -321,7 +321,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/privacy",
-    title: "Privacy Policy | Reena Designs & Constructions",
+    title: "Privacy Policy | Reena Design & Construction",
     description: `How ${SITE.name} collects, uses, shares and protects your personal data under India's DPDP Act, and how to exercise your rights.`,
     heading: "PRIVACY POLICY",
     subheading: "How we collect, use and protect your personal data",
@@ -332,7 +332,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/cookies",
-    title: "Cookie Policy | Reena Designs & Constructions",
+    title: "Cookie Policy | Reena Design & Construction",
     description: `What ${SITE.name} stores in your browser: no advertising or analytics cookies, only one local record of your cookie choice.`,
     heading: "COOKIE POLICY",
     crumbs: [HOME, { label: "Cookie Policy" }],
@@ -342,7 +342,7 @@ export const ROUTES: RouteSeo[] = [
   },
   {
     path: "/terms",
-    title: "Terms & Conditions | Reena Designs & Constructions",
+    title: "Terms & Conditions | Reena Design & Construction",
     description: `The terms for using the ${SITE.name} website: enquiries and quotations, project agreements, intellectual property and governing law.`,
     heading: "TERMS & CONDITIONS",
     subheading: "The terms that apply when you use this website",
@@ -410,7 +410,7 @@ export function validateRoutes(): string[] {
       problems.push(`${r.path}: paths are lowercase with no trailing slash`)
     }
     if (r.title.length > 60) problems.push(`${r.path}: title is ${r.title.length} chars (max 60)`)
-    if (!r.title.includes("Reena Designs")) problems.push(`${r.path}: title is missing the brand`)
+    if (!r.title.includes("Reena Design")) problems.push(`${r.path}: title is missing the brand`)
     if (r.description.length < 110 || r.description.length > 160) {
       problems.push(`${r.path}: description is ${r.description.length} chars (want 110–160)`)
     }

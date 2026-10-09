@@ -43,7 +43,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     project: "3,200 sq ft residence",
     rating: 5,
     quote:
-      "Reena Designs & Constructions handed over our home eleven days ahead of the contracted date, and the finish matched the 3D elevation almost exactly. Costing stayed where it started — no revised estimates halfway through.",
+      "Reena Design & Construction handed over our home eleven days ahead of the contracted date, and the finish matched the 3D elevation almost exactly. Costing stayed where it started — no revised estimates halfway through.",
   },
   {
     name: "Priya Dutta",

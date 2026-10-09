@@ -194,7 +194,7 @@ export default function FeaturedProjects() {
                   next. */}
               <img
                 src={p.img}
-                alt={`${p.title} — 3D interior design by Reena Designs & Constructions`}
+                alt={`${p.title} — 3D interior design by Reena Design & Construction`}
                 loading={i === 0 ? "eager" : "lazy"}
                 decoding="async"
                 className="h-full w-full object-cover"

@@ -157,7 +157,7 @@ function MapEmbed() {
     >
       {visible && (
         <iframe
-          title="Reena Designs & Constructions on the map — Medinipur, West Bengal"
+          title="Reena Design & Construction on the map — Medinipur, West Bengal"
           src="https://www.openstreetmap.org/export/embed.html?bbox=87.185%2C22.385%2C87.455%2C22.455&layer=mapnik&marker=22.4257%2C87.3199"
           className="h-full w-full border-0 grayscale-[35%]"
           referrerPolicy="no-referrer-when-downgrade"

@@ -89,7 +89,7 @@ export default function About() {
         >
           <img
             src={draftingTable}
-            alt="A Reena Designs & Constructions architect drawing up a working elevation at the drafting table"
+            alt="A Reena Design & Construction architect drawing up a working elevation at the drafting table"
             width={1672}
             height={941}
             loading="lazy"
@@ -149,7 +149,7 @@ export default function About() {
             <div className="relative -mx-8 overflow-hidden sm:-mx-9">
               <img
                 src={draftingTable}
-                alt="A Reena Designs & Constructions architect drawing up a working elevation at the drafting table"
+                alt="A Reena Design & Construction architect drawing up a working elevation at the drafting table"
                 width={1672}
                 height={941}
                 loading="lazy"

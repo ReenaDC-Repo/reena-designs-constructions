@@ -217,7 +217,7 @@ export default function Footer({ cta }: FooterProps) {
             <Link to="/" className="mb-4 inline-flex items-center gap-2.5">
               <img
                 src={v4Logo}
-                alt="Reena Designs & Constructions logo"
+                alt="Reena Design & Construction logo"
                 width={42}
                 height={42}
                 loading="lazy"
@@ -226,7 +226,7 @@ export default function Footer({ cta }: FooterProps) {
               <div>
                 <div className="allura text-[26px] leading-none text-orange-400">Reena</div>
                 <div className="poppins text-[9px] font-semibold uppercase tracking-[0.16em] text-orange-400">
-                  Designs &amp; Constructions
+                  Design &amp; Construction
                 </div>
               </div>
             </Link>

@@ -124,7 +124,7 @@ export const PAGE_KEYWORDS: Record<string, string[]> = {
     "residential construction Kharagpur",
   ],
   "/about": [
-    "about Reena Designs & Constructions",
+    "about Reena Design & Construction",
     "construction company Medinipur since the 1990s",
     "licensed civil engineers Paschim Medinipur",
     "experienced building contractors West Bengal",
@@ -201,7 +201,7 @@ export const PAGE_KEYWORDS: Record<string, string[]> = {
     "old house renovation cost India",
   ],
   "/our-work/testimonials": [
-    "Reena Designs & Constructions reviews",
+    "Reena Design & Construction reviews",
     "construction company reviews Medinipur",
     "client testimonials builders West Bengal",
     "best rated contractor Paschim Medinipur",

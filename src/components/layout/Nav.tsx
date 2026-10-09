@@ -137,7 +137,7 @@ export default function Nav() {
     >
       <div className={`${SITE_CONTAINER} flex items-center justify-between py-1.5`}>
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5" aria-label="Reena Designs & Constructions — home">
+        <Link to="/" className="flex items-center gap-2.5" aria-label="Reena Design & Construction — home">
           <img
             src={v4Logo}
             alt=""
@@ -153,7 +153,7 @@ export default function Nav() {
                  #FF5E00 at 9px on white is too faint to read. */
               className={`poppins text-[9px] leading-tight font-medium tracking-[0.14em] ${hasBg ? "text-brand-ink" : "text-brand"}`}
             >
-              DESIGNS &amp; CONSTRUCTIONS
+              DESIGN &amp; CONSTRUCTION
             </div>
           </div>
         </Link>

@@ -100,7 +100,7 @@ export default function Seo(props: SeoProps) {
   const path = entry?.path
 
   useEffect(() => {
-    const fullTitle = title.includes("Reena Designs") ? title : `${title} | ${SITE.name}`
+    const fullTitle = title.includes("Reena Design") ? title : `${title} | ${SITE.name}`
     const socialImage = image
       ? image.startsWith("http")
         ? image

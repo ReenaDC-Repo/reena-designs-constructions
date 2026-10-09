@@ -18,7 +18,7 @@ const SERVICES = [
     href: "/services",
     copy: "Structurally engineered residential and commercial builds, executed to IS-code standards with third-party tested materials.",
     img: draftingTable,
-    imgAlt: "A Reena Designs & Constructions architect drawing up a working elevation",
+    imgAlt: "A Reena Design & Construction architect drawing up a working elevation",
   },
   {
     title: "Architectural Design",
