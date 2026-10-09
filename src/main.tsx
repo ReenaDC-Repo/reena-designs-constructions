@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
+import LaunchGate from './components/layout/LaunchGate'
 import './index.css'
 
 // BrowserRouter, not HashRouter: real paths mean /services is a URL the server
@@ -14,7 +15,9 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <App />
+      <LaunchGate>
+        <App />
+      </LaunchGate>
     </BrowserRouter>
   </React.StrictMode>,
 )
