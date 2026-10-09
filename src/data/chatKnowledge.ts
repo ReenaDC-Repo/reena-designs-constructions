@@ -238,7 +238,7 @@ export const ANSWERS: Answer[] = [
   {
     id: "contact",
     keys: ["contact", "call", "phone", "number", "email", "reach", "talk to", "speak", "whatsapp", "address", "office", "book", "appointment", "site visit", "consultation", "meet"],
-    text: "Call +91 76791 24694, email Reena.dc65@gmail.com, or send your floor plan through the contact form. Office hours are Mon–Sat, 9:00 AM – 9:00 PM, and the first consultation is free.",
+    text: "Call +91 76791 24694, email reena.dc65@gmail.com, or send your floor plan through the contact form. Office hours are Mon–Sat, 9:00 AM – 9:00 PM, and the first consultation is free.",
     link: CONTACT,
     next: ["What does it cost?", "Which areas do you serve?"],
   },
@@ -252,7 +252,7 @@ export const ANSWERS: Answer[] = [
   {
     id: "careers",
     keys: ["job", "career", "hiring", "vacancy", "internship", "work with you", "resume", "cv"],
-    text: "We do take on engineers, site supervisors and design staff from time to time. Send your CV to Reena.dc65@gmail.com and we will keep it on file.",
+    text: "We do take on engineers, site supervisors and design staff from time to time. Send your CV to reena.dc65@gmail.com and we will keep it on file.",
     link: CONTACT,
   },
 ]
