@@ -96,7 +96,19 @@ export default function LaunchGate({ children }: { children: ReactNode }) {
       timer = window.setTimeout(tick, 1000 - (Date.now() % 1000) + 5)
     }
     tick()
-    return () => window.clearTimeout(timer)
+    // Background tabs and sleeping phones throttle timers to once a minute or
+    // pause them; catch up the moment the page is looked at again.
+    const onVisible = () => {
+      if (document.visibilityState === "visible") {
+        window.clearTimeout(timer)
+        tick()
+      }
+    }
+    document.addEventListener("visibilitychange", onVisible)
+    return () => {
+      window.clearTimeout(timer)
+      document.removeEventListener("visibilitychange", onVisible)
+    }
   }, [launched, atZero])
 
   // Zero: hold "We're live!" for a beat, then reload once into the live site.
