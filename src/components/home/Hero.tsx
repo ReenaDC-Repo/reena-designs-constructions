@@ -1,10 +1,17 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import SiteSearch from "@/components/ui/SiteSearch"
 import { SITE_CONTAINER } from "@/components/layout/constants"
+import useAutoplayVideo from "@/components/ui/useAutoplayVideo"
 
 const PHONE_QUERY = "(max-width: 767px)"
+
+/** Phones get a 720p, silent cut of the showreel (~170 KB against 3.9 MB):
+ *  they play it twice at once (backdrop + showreel), often on mobile data. */
+const HERO_SRC = "/hero.mp4"
+const HERO_SRC_PHONE = "/hero-mobile.mp4"
+const HERO_POSTER = "/hero-poster.jpg"
 
 export default function Hero() {
   // Only phones get the ambient backdrop. False during prerender, so the
@@ -18,6 +25,12 @@ export default function Hero() {
     mq.addEventListener("change", onChange)
     return () => mq.removeEventListener("change", onChange)
   }, [])
+
+  const src = isPhone ? HERO_SRC_PHONE : HERO_SRC
+  const showreelRef = useRef<HTMLVideoElement>(null)
+  const ambientRef = useRef<HTMLVideoElement>(null)
+  useAutoplayVideo(showreelRef, src)
+  useAutoplayVideo(ambientRef, src, isPhone)
 
   return (
     // `min-h-screen` is 100vh, which on iOS Safari is measured against the
@@ -42,8 +55,10 @@ export default function Hero() {
       {isPhone && (
         <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
           <video
+            ref={ambientRef}
             className="h-full w-full scale-125 object-cover opacity-70 blur-2xl"
-            src="/hero.mp4"
+            src={src}
+            poster={HERO_POSTER}
             autoPlay
             loop
             muted
@@ -65,8 +80,10 @@ export default function Hero() {
       <div className="relative z-[1] w-full pt-[70px] md:absolute md:inset-0 md:z-0 md:pt-0">
         <div className="relative aspect-video w-full overflow-hidden md:aspect-auto md:h-full">
           <video
+            ref={showreelRef}
             className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-            src="/hero.mp4"
+            src={src}
+            poster={HERO_POSTER}
             autoPlay
             loop
             muted

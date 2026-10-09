@@ -25,7 +25,14 @@ export default function PreLoader() {
     document.body.style.overflow = "hidden"
     const hardStop = window.setTimeout(finish, 20000)
 
-    videoRef.current?.play().catch(() => window.setTimeout(finish, 1500))
+    const video = videoRef.current
+    if (video) {
+      // React never writes the `muted` attribute, which mobile browsers check
+      // before allowing autoplay — set it, then start playback explicitly.
+      video.muted = true
+      video.setAttribute("muted", "")
+      video.play().catch(() => window.setTimeout(finish, 1500))
+    }
 
     return () => {
       window.clearTimeout(hardStop)
@@ -46,7 +53,9 @@ export default function PreLoader() {
     >
       <video
         ref={videoRef}
-        src="/logo-animation.mp4"
+        // Phones get a 1080px-wide cut: the 2270px master exceeds what some
+        // phone decoders accept, and fails outright on them.
+        src={window.matchMedia("(max-width: 767px)").matches ? "/logo-animation-mobile.mp4" : "/logo-animation.mp4"}
         className="h-full w-full object-contain"
         autoPlay
         muted
