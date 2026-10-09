@@ -7,37 +7,67 @@ function hasChildren(item: NavDropdownItem): item is NavChild {
   return "children" in item && Array.isArray(item.children)
 }
 
-function DropdownMenu({ items, onNavigate }: { items: readonly NavDropdownItem[]; onNavigate: () => void }) {
+function DropdownMenu({
+  overview,
+  items,
+  onNavigate,
+}: {
+  overview: { label: string; href: string }
+  items: readonly NavDropdownItem[]
+  onNavigate: () => void
+}) {
+  const [openSub, setOpenSub] = useState<string | null>(null)
+
   return (
     // Any link click closes the menu — including one to the page already
     // open, where no route change would close it.
-    <div className="absolute top-full left-0 z-50 min-w-56 pt-2" onClick={onNavigate}>
+    <div
+      className="absolute top-full left-0 z-50 min-w-56 pt-2"
+      onClick={(e) => {
+        if ((e.target as HTMLElement).closest("a")) onNavigate()
+      }}
+    >
       <div className="border-[1.5px] border-hairline bg-white py-2 shadow-2xl">
+        <Link
+          to={overview.href}
+          className="font-600 block border-b border-hairline px-4 pt-1.5 pb-3 text-sm text-navy transition-colors hover:bg-orange-50"
+        >
+          {overview.label}
+        </Link>
         {items.map((item) =>
           hasChildren(item) ? (
-            <div key={item.label} className="group/sub relative">
-              <Link
-                to={item.children[0].href}
-                className="font-600 flex items-center justify-between px-4 py-2.5 text-sm text-navy transition-colors hover:bg-orange-50"
+            <div key={item.label} className="relative">
+              <button
+                type="button"
+                aria-expanded={openSub === item.label}
+                onClick={() => setOpenSub((cur) => (cur === item.label ? null : item.label))}
+                className="font-600 flex w-full items-center justify-between px-4 py-2.5 text-left text-sm text-navy transition-colors hover:bg-orange-50"
               >
                 {item.label}
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  aria-hidden="true"
+                  className={`transition-transform duration-200 ${openSub === item.label ? "rotate-180" : ""}`}
+                >
                   <path d="M4 2l4 4-4 4" stroke="#999" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-              </Link>
-              {/* `focus-within` matters as much as `hover` here — without it the
-                  submenu could only ever be opened with a mouse. */}
-              <div className="absolute left-full top-0 hidden min-w-48 border-[1.5px] border-hairline bg-white py-2 shadow-xl group-hover/sub:block group-focus-within/sub:block">
-                {item.children.map((child) => (
-                  <Link
-                    key={child.href}
-                    to={child.href}
-                    className="block px-4 py-2.5 text-sm text-slate-600 transition-colors hover:bg-orange-50"
-                  >
-                    {child.label}
-                  </Link>
-                ))}
-              </div>
+              </button>
+              {openSub === item.label && (
+                <div className="absolute left-full top-0 min-w-48 border-[1.5px] border-hairline bg-white py-2 shadow-xl">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      to={child.href}
+                      className="block px-4 py-2.5 text-sm text-slate-600 transition-colors hover:bg-orange-50"
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           ) : (
             <Link
@@ -61,10 +91,6 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const dropWrapRef = useRef<HTMLDivElement>(null)
-  // Touch has no hover, so the first tap on "Our Work" opens the dropdown and
-  // only a second tap follows the link. Decided on pointerdown, before the
-  // emulated mouseenter and focus that a tap fires have already opened it.
-  const tapOpensDropRef = useRef(false)
 
   useEffect(() => {
     setMenuOpen(false)
@@ -140,30 +166,18 @@ export default function Nav() {
                 key={link.label}
                 ref={dropWrapRef}
                 className="relative"
-                onMouseEnter={() => setDropOpen(true)}
-                onMouseLeave={() => setDropOpen(false)}
-                onFocus={() => setDropOpen(true)}
                 onBlur={(e) => {
                   if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setDropOpen(false)
                 }}
               >
-                <Link
-                  to={link.href}
+                {/* Click toggles the menu open and shut; the section's own page
+                    is the first entry inside it. */}
+                <button
+                  type="button"
                   aria-haspopup="true"
                   aria-expanded={dropOpen}
                   aria-current={isActive(link.href) ? "page" : undefined}
-                  onPointerDown={(e) => {
-                    tapOpensDropRef.current = e.pointerType !== "mouse" && !dropOpen
-                  }}
-                  onClick={(e) => {
-                    if (tapOpensDropRef.current) {
-                      tapOpensDropRef.current = false
-                      e.preventDefault()
-                      setDropOpen(true)
-                      return
-                    }
-                    setDropOpen(false)
-                  }}
+                  onClick={() => setDropOpen((v) => !v)}
                   className={`font-500 relative flex items-center gap-1 pb-0.5 text-sm transition-colors ${
                     isActive(link.href) ? "text-brand-ink" : hasBg ? "text-slate-800" : "text-white"
                   }`}
@@ -182,8 +196,14 @@ export default function Nav() {
                   {isActive(link.href) && (
                     <span className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-brand" />
                   )}
-                </Link>
-                {dropOpen && <DropdownMenu items={link.dropdown} onNavigate={() => setDropOpen(false)} />}
+                </button>
+                {dropOpen && (
+                  <DropdownMenu
+                    overview={{ label: `All ${link.label}`, href: link.href }}
+                    items={link.dropdown}
+                    onNavigate={() => setDropOpen(false)}
+                  />
+                )}
               </div>
             ) : (
               <Link
