@@ -12,6 +12,9 @@ const PHONE_QUERY = "(max-width: 767px)"
 const HERO_SRC = "/hero.mp4"
 const HERO_SRC_PHONE = "/hero-mobile.mp4"
 const HERO_POSTER = "/hero-poster.jpg"
+/** Same clip as an animated image, shown when the device refuses to autoplay
+ *  video (Low Power Mode, Data Saver) — those modes do not stop images. */
+const HERO_ANIMATED = "/hero-anim.webp"
 
 export default function Hero() {
   // Only phones get the ambient backdrop. False during prerender, so the
@@ -29,8 +32,8 @@ export default function Hero() {
   const src = isPhone ? HERO_SRC_PHONE : HERO_SRC
   const showreelRef = useRef<HTMLVideoElement>(null)
   const ambientRef = useRef<HTMLVideoElement>(null)
-  useAutoplayVideo(showreelRef, src)
-  useAutoplayVideo(ambientRef, src, isPhone)
+  const blocked = useAutoplayVideo(showreelRef, src)
+  useAutoplayVideo(ambientRef, src, isPhone && !blocked)
 
   return (
     // `min-h-screen` is 100vh, which on iOS Safari is measured against the
@@ -54,16 +57,24 @@ export default function Hero() {
           never decodes a second video. */}
       {isPhone && (
         <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-          <video
-            ref={ambientRef}
-            className="h-full w-full scale-125 object-cover opacity-70 blur-2xl"
-            src={src}
-            poster={HERO_POSTER}
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
+          {blocked ? (
+            <img
+              src={HERO_ANIMATED}
+              alt=""
+              className="h-full w-full scale-125 object-cover opacity-70 blur-2xl"
+            />
+          ) : (
+            <video
+              ref={ambientRef}
+              className="h-full w-full scale-125 object-cover opacity-70 blur-2xl"
+              src={src}
+              poster={HERO_POSTER}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-b from-navy/55 via-navy/75 to-navy" />
         </div>
       )}
@@ -91,6 +102,14 @@ export default function Hero() {
             preload="auto"
             aria-hidden="true"
           />
+          {blocked && (
+            <img
+              src={HERO_ANIMATED}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+            />
+          )}
         </div>
       </div>
 

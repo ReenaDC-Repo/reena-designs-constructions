@@ -15,6 +15,9 @@ import { useEffect, useRef, useState } from "react"
 export default function PreLoader() {
   const [visible, setVisible] = useState(typeof window !== "undefined")
   const [leaving, setLeaving] = useState(false)
+  // Set when the device refuses to autoplay video (Low Power Mode, Data
+  // Saver). An animated image of the same clip plays regardless.
+  const [blocked, setBlocked] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const finish = () => setLeaving(true)
@@ -31,7 +34,7 @@ export default function PreLoader() {
       // before allowing autoplay — set it, then start playback explicitly.
       video.muted = true
       video.setAttribute("muted", "")
-      video.play().catch(() => window.setTimeout(finish, 1500))
+      video.play().catch(() => setBlocked(true))
     }
 
     return () => {
@@ -39,6 +42,13 @@ export default function PreLoader() {
       document.body.style.overflow = previousOverflow
     }
   }, [visible])
+
+  // The animated image runs once (5s) and has no `ended` event to listen for.
+  useEffect(() => {
+    if (!blocked) return
+    const t = window.setTimeout(finish, 5200)
+    return () => window.clearTimeout(t)
+  }, [blocked])
 
   if (!visible) return null
 
@@ -51,20 +61,24 @@ export default function PreLoader() {
       }`}
       onTransitionEnd={() => leaving && setVisible(false)}
     >
-      <video
-        ref={videoRef}
-        // Phones get a 1080px-wide cut: the 2270px master exceeds what some
-        // phone decoders accept, and fails outright on them.
-        src={window.matchMedia("(max-width: 767px)").matches ? "/logo-animation-mobile.mp4" : "/logo-animation.mp4"}
-        className="h-full w-full object-contain"
-        autoPlay
-        muted
-        playsInline
-        preload="auto"
-        aria-hidden="true"
-        onEnded={finish}
-        onError={() => window.setTimeout(finish, 1500)}
-      />
+      {blocked ? (
+        <img src="/logo-animation.webp" alt="" aria-hidden="true" className="h-full w-full object-contain" />
+      ) : (
+        <video
+          ref={videoRef}
+          // Phones get a 1080px-wide cut: the 2270px master exceeds what some
+          // phone decoders accept, and fails outright on them.
+          src={window.matchMedia("(max-width: 767px)").matches ? "/logo-animation-mobile.mp4" : "/logo-animation.mp4"}
+          className="h-full w-full object-contain"
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          onEnded={finish}
+          onError={() => window.setTimeout(finish, 1500)}
+        />
+      )}
     </div>
   )
 }
