@@ -86,6 +86,7 @@ export default function Careers() {
           <SectionTitle
             title="ROLES WE HIRE FOR"
             align="left"
+            accentBar
             subtitle="Ongoing categories, not a fixed vacancy list — call to ask what is open right now."
             className="mb-10"
           />
@@ -105,7 +106,7 @@ export default function Careers() {
 
       <section className="py-14 lg:py-20">
         <div className={`${SITE_CONTAINER} max-w-2xl`}>
-          <SectionTitle title="HOW TO APPLY" align="left" className="mb-6" />
+          <SectionTitle title="HOW TO APPLY" align="left" accentBar className="mb-6" />
           <p className="text-sm leading-7 text-slate-500">
             Send your resume and the role you are applying for to{" "}
             <a href={`mailto:${SITE.email}`} className="font-600 text-brand-ink underline underline-offset-2">

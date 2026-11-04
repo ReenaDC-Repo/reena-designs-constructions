@@ -30,7 +30,7 @@ function DropdownMenu({
       <div className="border-[1.5px] border-hairline bg-white py-2 shadow-2xl">
         <Link
           to={overview.href}
-          className="font-600 block border-b border-hairline px-4 pt-1.5 pb-3 text-sm text-navy transition-colors hover:bg-orange-50"
+          className="font-600 block border-b border-hairline px-4 pt-1.5 pb-3 text-sm text-navy transition-colors hover:bg-gold-soft hover:text-primary"
         >
           {overview.label}
         </Link>
@@ -41,7 +41,7 @@ function DropdownMenu({
                 type="button"
                 aria-expanded={openSub === item.label}
                 onClick={() => setOpenSub((cur) => (cur === item.label ? null : item.label))}
-                className="font-600 flex w-full items-center justify-between px-4 py-2.5 text-left text-sm text-navy transition-colors hover:bg-orange-50"
+                className="font-600 flex w-full items-center justify-between px-4 py-2.5 text-left text-sm text-navy transition-colors hover:bg-gold-soft hover:text-primary"
               >
                 {item.label}
                 <svg
@@ -61,7 +61,7 @@ function DropdownMenu({
                     <Link
                       key={child.href}
                       to={child.href}
-                      className="block px-4 py-2.5 text-sm text-slate-600 transition-colors hover:bg-orange-50"
+                      className="block px-4 py-2.5 text-sm text-slate-600 transition-colors hover:bg-gold-soft hover:text-primary"
                     >
                       {child.label}
                     </Link>
@@ -73,7 +73,7 @@ function DropdownMenu({
             <Link
               key={item.href}
               to={item.href}
-              className="block px-4 py-2.5 text-sm text-slate-600 transition-colors hover:bg-orange-50"
+              className="block px-4 py-2.5 text-sm text-slate-600 transition-colors hover:bg-gold-soft hover:text-primary"
             >
               {item.label}
             </Link>
@@ -136,27 +136,42 @@ export default function Nav() {
       }`}
     >
       <div className={`${SITE_CONTAINER} flex items-center justify-between py-1.5`}>
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5" aria-label="Reena Design & Construction — home">
-          <img
-            src={v4Logo}
-            alt=""
-            width={58}
-            height={58}
-            className="h-[58px] w-[58px] object-contain"
-          />
-          <div>
-            <div className={`allura text-[28px] leading-none ${hasBg ? "text-brand-ink" : "text-brand"}`}>Reena</div>
-            <div
-              /* Theme orange. On the white scrolled bar it uses brand-ink, the
-                 darker orange the site uses for small text on light grounds —
-                 #FF5E00 at 9px on white is too faint to read. */
-              className={`poppins text-[9px] leading-tight font-medium tracking-[0.14em] ${hasBg ? "text-brand-ink" : "text-brand"}`}
-            >
-              DESIGN &amp; CONSTRUCTION
+        {/* Logo and Ghar Roshan Campaign */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          <Link to="/" className="flex items-center gap-2 sm:gap-2.5" aria-label="Reena Design & Construction — home">
+            <img
+              src={v4Logo}
+              alt=""
+              width={54}
+              height={54}
+              className="h-[48px] w-[48px] sm:h-[54px] sm:w-[54px] object-contain"
+            />
+            <div>
+              <div className={`allura text-[26px] sm:text-[28px] leading-none ${hasBg ? "text-brand-ink" : "text-brand"}`}>Reena</div>
+              <div
+                className={`poppins text-[8.5px] sm:text-[9px] leading-tight font-medium tracking-[0.14em] ${hasBg ? "text-brand-ink" : "text-brand"}`}
+              >
+                DESIGN &amp; CONSTRUCTION
+              </div>
             </div>
-          </div>
-        </Link>
+          </Link>
+
+          <span className={`hidden min-[480px]:block h-7 w-px ${hasBg ? "bg-slate-200" : "bg-white/30"}`} aria-hidden="true" />
+
+          <Link to="/" className="hidden min-[480px]:flex items-center" aria-label="Ghar Roshan, Sapne Roshan">
+            <div className={`rounded-xl px-2.5 py-1 transition-all duration-300 ${
+              hasBg
+                ? "bg-amber-50/70 border border-[#C5A059]/30 shadow-xs"
+                : "bg-black/25 border border-white/20 backdrop-blur-md"
+            }`}>
+              <img
+                src={hasBg ? "/theme/ghar-roshan.png" : "/theme/ghar-roshan-light.png"}
+                alt="Ghar Roshan, Sapne Roshan"
+                className="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          </Link>
+        </div>
 
         {/* Desktop links */}
         <div className="hidden items-center gap-8 md:flex">
@@ -178,8 +193,8 @@ export default function Nav() {
                   aria-expanded={dropOpen}
                   aria-current={isActive(link.href) ? "page" : undefined}
                   onClick={() => setDropOpen((v) => !v)}
-                  className={`font-500 relative flex items-center gap-1 pb-0.5 text-sm transition-colors ${
-                    isActive(link.href) ? "text-brand-ink" : hasBg ? "text-slate-800" : "text-white"
+                  className={`font-500 relative flex items-center gap-1 pb-0.5 text-sm transition-colors hover:text-primary ${
+                    isActive(link.href) ? "text-secondary font-600" : hasBg ? "text-slate-800" : "text-white"
                   }`}
                 >
                   {link.label}
@@ -194,7 +209,7 @@ export default function Nav() {
                     <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                   {isActive(link.href) && (
-                    <span className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-brand" />
+                    <span className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
                   )}
                 </button>
                 {dropOpen && (
@@ -210,13 +225,13 @@ export default function Nav() {
                 key={link.label}
                 to={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
-                className={`font-500 relative pb-0.5 text-sm transition-colors ${
-                  isActive(link.href) ? "text-brand-ink" : hasBg ? "text-slate-800" : "text-white"
+                className={`font-500 relative pb-0.5 text-sm transition-colors hover:text-primary ${
+                  isActive(link.href) ? "text-secondary font-600" : hasBg ? "text-slate-800" : "text-white"
                 }`}
               >
                 {link.label}
                 {isActive(link.href) && (
-                  <span className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-brand" />
+                  <span className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
                 )}
               </Link>
             ),
@@ -269,6 +284,15 @@ export default function Nav() {
             if ((e.target as HTMLElement).closest("a")) setMenuOpen(false)
           }}
         >
+          {/* Mobile Ghar Roshan emblem */}
+          <div className="flex items-center justify-center py-3 mb-2 border-b border-slate-100">
+            <img
+              src="/theme/ghar-roshan.png"
+              alt="Ghar Roshan, Sapne Roshan"
+              className="h-14 sm:h-16 w-auto object-contain"
+            />
+          </div>
+
           {NAV_LINKS.map((link) =>
             link.dropdown ? (
               <div key={link.label}>
@@ -291,7 +315,7 @@ export default function Nav() {
                   </svg>
                 </button>
                 {openMobileGroup === link.label && (
-                  <div className="flex flex-col gap-1 border-l-2 border-brand pl-4">
+                  <div className="flex flex-col gap-1 border-l-2 border-primary pl-4">
                     <Link to={link.href} className="py-1.5 text-sm text-slate-500">
                       Overview
                     </Link>

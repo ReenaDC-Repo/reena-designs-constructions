@@ -391,7 +391,7 @@ export default function SiteSearch() {
                 }}
                 onMouseEnter={() => setActive(i)}
                 className={`flex w-full flex-col gap-0.5 px-4 py-2.5 text-left transition-colors ${
-                  i === active ? "bg-orange-50" : "bg-white"
+                  i === active ? "bg-gold-soft/80" : "bg-white"
                 }`}
               >
                 <span className="flex w-full items-center gap-3">
@@ -402,7 +402,7 @@ export default function SiteSearch() {
                     {r.kind}
                   </span>
                   {i === active && (
-                    <CornerDownLeft size={13} strokeWidth={2.2} className="flex-none text-brand" aria-hidden="true" />
+                    <CornerDownLeft size={13} strokeWidth={2.2} className="flex-none text-primary" aria-hidden="true" />
                   )}
                 </span>
                 {r.snippet && (
@@ -431,7 +431,7 @@ export default function SiteSearch() {
             /* White on a translucent dark fill, not slate-on-white: these sit
                over the hero video, where the old light chip lost both its
                border and its label against the footage. */
-            className="shrink-0 whitespace-nowrap border border-white/35 bg-white/10 px-2.5 py-1 text-[11px] text-white/90 backdrop-blur-sm transition hover:border-orange-400 hover:bg-white/20 hover:text-white"
+            className="shrink-0 whitespace-nowrap border border-white/35 bg-white/10 px-2.5 py-1 text-[11px] text-white/90 backdrop-blur-sm transition hover:border-primary hover:bg-white/20 hover:text-white"
           >
             {s}
           </button>

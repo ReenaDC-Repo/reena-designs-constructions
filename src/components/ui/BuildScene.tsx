@@ -49,7 +49,7 @@ export default function BuildScene({ step }: { step: number }) {
         </linearGradient>
         <linearGradient id="cad-charcoal" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#253452" />
-          <stop offset="100%" stopColor="#1a2744" />
+          <stop offset="100%" stopColor="#4d0714" />
         </linearGradient>
         <linearGradient id="cad-glass" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#e0edf9" stopOpacity="0.85" />
@@ -61,7 +61,7 @@ export default function BuildScene({ step }: { step: number }) {
         </linearGradient>
         <linearGradient id="cad-sun" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#FFA048" />
-          <stop offset="100%" stopColor="#FF5E00" />
+          <stop offset="100%" stopColor="#ff7700" />
         </linearGradient>
         <pattern id="cad-timber" width="8" height="8" patternUnits="userSpaceOnUse">
           <rect width="8" height="8" fill="#a4683a" />
@@ -79,16 +79,16 @@ export default function BuildScene({ step }: { step: number }) {
       {/* Technical CAD grid */}
       <g opacity="0.45">
         {Array.from({ length: 20 }, (_, i) => (
-          <line key={`v${i}`} x1={i * 40} y1="0" x2={i * 40} y2="480" stroke="#1a2744" strokeWidth="0.5" opacity="0.06" />
+          <line key={`v${i}`} x1={i * 40} y1="0" x2={i * 40} y2="480" stroke="#4d0714" strokeWidth="0.5" opacity="0.06" />
         ))}
         {Array.from({ length: 13 }, (_, i) => (
-          <line key={`h${i}`} x1="0" y1={i * 40} x2="760" y2={i * 40} stroke="#1a2744" strokeWidth="0.5" opacity="0.06" />
+          <line key={`h${i}`} x1="0" y1={i * 40} x2="760" y2={i * 40} stroke="#4d0714" strokeWidth="0.5" opacity="0.06" />
         ))}
       </g>
 
       {/* Technical title block / elevation markers */}
       <g opacity="0.45" className="text-[9px] font-mono">
-        <text x="32" y="36" fill="#1a2744" fontWeight="600">DWG: ELEVATION - FRONT (EAST)</text>
+        <text x="32" y="36" fill="#4d0714" fontWeight="600">DWG: ELEVATION - FRONT (EAST)</text>
         <text x="32" y="49" fill="#64748b">SCALE 1:100 · UNITS [METRES]</text>
       </g>
 
@@ -107,14 +107,14 @@ export default function BuildScene({ step }: { step: number }) {
       {/* ── Sun (Step 19 Handover) ───────────────────────────────── */}
       <L step={step} from={19}>
         <circle cx="658" cy="76" r="26" fill="url(#cad-sun)" opacity="0.9" />
-        <g stroke="#FF5E00" strokeWidth="2" strokeLinecap="round" opacity="0.5">
+        <g stroke="#ff7700" strokeWidth="2" strokeLinecap="round" opacity="0.5">
           <path d="M658 36v-12M658 128v12M618 76h-12M698 76h12M630 48l-8-8M686 104l8 8M686 48l8-8M630 104l-8 8" />
         </g>
       </L>
 
       {/* ── Natural Ground Line ──────────────────────────────────── */}
-      <line x1="32" y1={GROUND} x2="728" y2={GROUND} stroke="#1a2744" strokeWidth="1.8" opacity="0.5" />
-      <g stroke="#1a2744" strokeWidth="0.75" opacity="0.2">
+      <line x1="32" y1={GROUND} x2="728" y2={GROUND} stroke="#4d0714" strokeWidth="1.8" opacity="0.5" />
+      <g stroke="#4d0714" strokeWidth="0.75" opacity="0.2">
         {Array.from({ length: 36 }, (_, i) => (
           <line key={i} x1={40 + i * 19} y1={GROUND} x2={30 + i * 19} y2={GROUND + 10} />
         ))}
@@ -126,17 +126,17 @@ export default function BuildScene({ step }: { step: number }) {
           {/* Plot boundary with dashed perimeter */}
           <path
             d={`M90 ${GROUND} l42 -36 h504 l42 36`}
-            stroke="#1a2744"
+            stroke="#4d0714"
             strokeWidth="1.2"
             strokeDasharray="6 5"
             opacity="0.4"
           />
           {/* North indicator compass rose */}
           <g transform="translate(680, 72)" opacity="0.6">
-            <circle cx="0" cy="0" r="16" stroke="#1a2744" strokeWidth="1" fill="none" />
-            <polygon points="0,-12 4,0 -4,0" fill="#FF5E00" />
+            <circle cx="0" cy="0" r="16" stroke="#4d0714" strokeWidth="1" fill="none" />
+            <polygon points="0,-12 4,0 -4,0" fill="#ff7700" />
             <polygon points="0,12 4,0 -4,0" fill="#94a3b8" />
-            <text x="0" y="-15" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#1a2744">N</text>
+            <text x="0" y="-15" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#4d0714">N</text>
           </g>
         </g>
       </L>
@@ -145,16 +145,16 @@ export default function BuildScene({ step }: { step: number }) {
       <L step={step} from={2} until={9}>
         <g>
           {/* Surveyor benchmarks */}
-          <g stroke="#FF5E00" strokeWidth="1.5">
+          <g stroke="#ff7700" strokeWidth="1.5">
             <path d="M148 392v-24M600 392v-24M374 360v-16" />
-            <circle cx="148" cy="364" r="3.5" fill="#FF5E00" />
-            <circle cx="600" cy="364" r="3.5" fill="#FF5E00" />
+            <circle cx="148" cy="364" r="3.5" fill="#ff7700" />
+            <circle cx="600" cy="364" r="3.5" fill="#ff7700" />
           </g>
           {/* Electronic Total Station on tripod */}
-          <g stroke="#1a2744" strokeWidth="1.5" opacity="0.65">
+          <g stroke="#4d0714" strokeWidth="1.5" opacity="0.65">
             <path d="M648 392l11-34M670 392l-11-34M659 358v-8" />
-            <rect x="648" y="336" width="22" height="14" rx="2" fill="#fff" stroke="#1a2744" strokeWidth="1.2" />
-            <circle cx="659" cy="343" r="3" fill="#FF5E00" stroke="none" />
+            <rect x="648" y="336" width="22" height="14" rx="2" fill="#fff" stroke="#4d0714" strokeWidth="1.2" />
+            <circle cx="659" cy="343" r="3" fill="#ff7700" stroke="none" />
           </g>
         </g>
       </L>
@@ -162,10 +162,10 @@ export default function BuildScene({ step }: { step: number }) {
       {/* ── Step 3: Planning Dimensions ─────────────────────────── */}
       <L step={step} from={3} until={9}>
         <g opacity="0.8">
-          <line x1="148" y1="418" x2="600" y2="418" stroke="#1a2744" strokeWidth="1" />
-          <path d="M148 412v12M600 412v12M144 422l8-8M596 422l8-8" stroke="#1a2744" strokeWidth="1.2" />
+          <line x1="148" y1="418" x2="600" y2="418" stroke="#4d0714" strokeWidth="1" />
+          <path d="M148 412v12M600 412v12M144 422l8-8M596 422l8-8" stroke="#4d0714" strokeWidth="1.2" />
           <rect x="330" y="408" width="90" height="20" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
-          <text x="375" y="422" fill="#FF5E00" fontSize="11" fontFamily="monospace" fontWeight="700" textAnchor="middle">
+          <text x="375" y="422" fill="#ff7700" fontSize="11" fontFamily="monospace" fontWeight="700" textAnchor="middle">
             18.50 m PLOT
           </text>
         </g>
@@ -173,7 +173,7 @@ export default function BuildScene({ step }: { step: number }) {
 
       {/* ── Steps 4–9: Ghosted Contemporary Villa Blueprint ───────── */}
       <L step={step} from={4} until={10}>
-        <g stroke="#1a2744" strokeWidth="1.3" strokeDasharray="5 4" opacity="0.45">
+        <g stroke="#4d0714" strokeWidth="1.3" strokeDasharray="5 4" opacity="0.45">
           {/* Ground floor volume */}
           <rect x="200" y="266" width="350" height="126" />
           {/* First floor cantilevered volume */}
@@ -187,18 +187,18 @@ export default function BuildScene({ step }: { step: number }) {
 
       {/* ── Step 5: Structural Grid Axes ─────────────────────────── */}
       <L step={step} from={5} until={10}>
-        <g stroke="#FF5E00" strokeWidth="1" strokeDasharray="4 4" opacity="0.75">
+        <g stroke="#ff7700" strokeWidth="1" strokeDasharray="4 4" opacity="0.75">
           <line x1="220" y1="110" x2="220" y2="440" />
           <line x1="360" y1="110" x2="360" y2="440" />
           <line x1="510" y1="110" x2="510" y2="440" />
           {/* Grid coordinate markers */}
-          <g opacity="0.9" fill="#ffffff" stroke="#FF5E00" strokeWidth="1.2">
+          <g opacity="0.9" fill="#ffffff" stroke="#ff7700" strokeWidth="1.2">
             <circle cx="220" cy="100" r="9" />
             <circle cx="360" cy="100" r="9" />
             <circle cx="510" cy="100" r="9" />
-            <text x="220" y="103" fill="#1a2744" fontSize="9" fontWeight="bold" textAnchor="middle" stroke="none">A</text>
-            <text x="360" y="103" fill="#1a2744" fontSize="9" fontWeight="bold" textAnchor="middle" stroke="none">B</text>
-            <text x="510" y="103" fill="#1a2744" fontSize="9" fontWeight="bold" textAnchor="middle" stroke="none">C</text>
+            <text x="220" y="103" fill="#4d0714" fontSize="9" fontWeight="bold" textAnchor="middle" stroke="none">A</text>
+            <text x="360" y="103" fill="#4d0714" fontSize="9" fontWeight="bold" textAnchor="middle" stroke="none">B</text>
+            <text x="510" y="103" fill="#4d0714" fontSize="9" fontWeight="bold" textAnchor="middle" stroke="none">C</text>
           </g>
         </g>
       </L>
@@ -207,9 +207,9 @@ export default function BuildScene({ step }: { step: number }) {
       <L step={step} from={6} until={10}>
         <g opacity="0.5">
           {/* Large panoramic window outlines */}
-          <rect x="220" y="286" width="130" height="88" stroke="#1a2744" strokeWidth="1" strokeDasharray="3 3" />
-          <rect x="200" y="156" width="140" height="88" stroke="#1a2744" strokeWidth="1" strokeDasharray="3 3" />
-          <rect x="375" y="156" width="145" height="88" stroke="#1a2744" strokeWidth="1" strokeDasharray="3 3" />
+          <rect x="220" y="286" width="130" height="88" stroke="#4d0714" strokeWidth="1" strokeDasharray="3 3" />
+          <rect x="200" y="156" width="140" height="88" stroke="#4d0714" strokeWidth="1" strokeDasharray="3 3" />
+          <rect x="375" y="156" width="145" height="88" stroke="#4d0714" strokeWidth="1" strokeDasharray="3 3" />
         </g>
       </L>
 
@@ -233,12 +233,12 @@ export default function BuildScene({ step }: { step: number }) {
       {/* ── Step 8: Cost Schedule & Fixed BOQ Seal ───────────────── */}
       <L step={step} from={8} until={10}>
         <g transform="translate(68, 140)">
-          <rect x="0" y="0" width="170" height="64" rx="8" fill="#1a2744" opacity="0.95" />
-          <rect x="2" y="2" width="166" height="60" rx="6" fill="none" stroke="#FF5E00" strokeWidth="1" opacity="0.6" />
+          <rect x="0" y="0" width="170" height="64" rx="8" fill="#4d0714" opacity="0.95" />
+          <rect x="2" y="2" width="166" height="60" rx="6" fill="none" stroke="#ff7700" strokeWidth="1" opacity="0.6" />
           <text x="85" y="24" fill="#ffffff" fontSize="9" fontFamily="monospace" fontWeight="600" textAnchor="middle" opacity="0.85" letterSpacing="0.8">
             ITEMISED FIXED CONTRACT
           </text>
-          <text x="85" y="43" fill="#FF5E00" fontSize="12" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+          <text x="85" y="43" fill="#ff7700" fontSize="12" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
             BOQ LOCKED ✓
           </text>
           <text x="85" y="56" fill="#94a3b8" fontSize="7.5" fontFamily="monospace" textAnchor="middle">
@@ -257,8 +257,8 @@ export default function BuildScene({ step }: { step: number }) {
             <line x1="75" y1={GROUND - 16} x2="155" y2={GROUND - 16} />
           </g>
           {/* Steel tie badge */}
-          <rect x="80" y={GROUND - 32} width="66" height="13" rx="3" fill="#1a2744" opacity="0.85" />
-          <text x="113" y={GROUND - 23} fill="#FF5E00" fontSize="7" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+          <rect x="80" y={GROUND - 32} width="66" height="13" rx="3" fill="#4d0714" opacity="0.85" />
+          <text x="113" y={GROUND - 23} fill="#ff7700" fontSize="7" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
             Fe 550D TMT
           </text>
 
@@ -309,7 +309,7 @@ export default function BuildScene({ step }: { step: number }) {
           <rect x="170" y="132" width="385" height="12" fill="#475569" opacity="0.8" />
 
           {/* Exterior modular scaffolding */}
-          <g stroke="#FF5E00" strokeWidth="1.2" opacity="0.65">
+          <g stroke="#ff7700" strokeWidth="1.2" opacity="0.65">
             <line x1="165" y1="124" x2="165" y2={GROUND} />
             <line x1="565" y1="124" x2="565" y2={GROUND} />
             <line x1="165" y1="170" x2="565" y2="170" />
@@ -325,7 +325,7 @@ export default function BuildScene({ step }: { step: number }) {
 
       {/* ── Steps 10–14: Sleek Tower Crane ───────────────────────── */}
       <L step={step} from={10} until={14}>
-        <g stroke="#1a2744" strokeWidth="1.4" opacity="0.75">
+        <g stroke="#4d0714" strokeWidth="1.4" opacity="0.75">
           <line x1="616" y1={GROUND} x2="616" y2="80" />
           <line x1="634" y1={GROUND} x2="634" y2="80" />
           <path
@@ -336,10 +336,10 @@ export default function BuildScene({ step }: { step: number }) {
           {/* Horizontal boom */}
           <line x1="480" y1="74" x2="720" y2="74" strokeWidth="1.8" />
           <line x1="480" y1="84" x2="720" y2="84" strokeWidth="1" />
-          <polygon points="625,50 616,74 634,74" fill="#1a2744" />
+          <polygon points="625,50 616,74 634,74" fill="#4d0714" />
           {/* Crane hoist cable */}
-          <line x1="530" y1="84" x2="530" y2="150" stroke="#FF5E00" strokeDasharray="3 3" strokeWidth="1.2" />
-          <rect x="518" y="150" width="24" height="8" fill="#FF5E00" rx="1" />
+          <line x1="530" y1="84" x2="530" y2="150" stroke="#ff7700" strokeDasharray="3 3" strokeWidth="1.2" />
+          <rect x="518" y="150" width="24" height="8" fill="#ff7700" rx="1" />
         </g>
       </L>
 
@@ -369,7 +369,7 @@ export default function BuildScene({ step }: { step: number }) {
 
       {/* ── Step 14: Precision Tile Grid ─────────────────────────── */}
       <L step={step} from={14}>
-        <g opacity="0.45" stroke="#1a2744" strokeWidth="0.8">
+        <g opacity="0.45" stroke="#4d0714" strokeWidth="0.8">
           <line x1="180" y1={GROUND - 2} x2="550" y2={GROUND - 2} strokeWidth="1.2" />
           {Array.from({ length: 15 }, (_, i) => (
             <line key={`tile-${i}`} x1={200 + i * 23} y1={GROUND - 12} x2={200 + i * 23} y2={GROUND - 2} />
@@ -381,10 +381,10 @@ export default function BuildScene({ step }: { step: number }) {
       <L step={step} from={15}>
         <g>
           {/* Ground floor main walls */}
-          <rect x="200" y="266" width="350" height="126" fill="url(#cad-wall)" stroke="#1a2744" strokeWidth="1.4" />
+          <rect x="200" y="266" width="350" height="126" fill="url(#cad-wall)" stroke="#4d0714" strokeWidth="1.4" />
 
           {/* First floor cantilever facade */}
-          <rect x="175" y="140" width="375" height="126" fill="url(#cad-wall)" stroke="#1a2744" strokeWidth="1.4" />
+          <rect x="175" y="140" width="375" height="126" fill="url(#cad-wall)" stroke="#4d0714" strokeWidth="1.4" />
 
           {/* Flat roof architectural parapet & fascia band */}
           <rect x="168" y="126" width="389" height="14" rx="2" fill="url(#cad-charcoal)" />
@@ -396,22 +396,22 @@ export default function BuildScene({ step }: { step: number }) {
           <rect x="420" y="146" width="120" height="108" fill="url(#cad-timber)" stroke="#874e24" strokeWidth="1" />
 
           {/* Cantilever balcony glass railing */}
-          <rect x="175" y="228" width="175" height="32" fill="#e0edf9" fillOpacity="0.45" stroke="#1a2744" strokeWidth="1.2" />
-          <line x1="175" y1="228" x2="350" y2="228" stroke="#1a2744" strokeWidth="2" />
-          <line x1="233" y1="228" x2="233" y2="260" stroke="#1a2744" strokeWidth="0.8" opacity="0.6" />
-          <line x1="291" y1="228" x2="291" y2="260" stroke="#1a2744" strokeWidth="0.8" opacity="0.6" />
+          <rect x="175" y="228" width="175" height="32" fill="#e0edf9" fillOpacity="0.45" stroke="#4d0714" strokeWidth="1.2" />
+          <line x1="175" y1="228" x2="350" y2="228" stroke="#4d0714" strokeWidth="2" />
+          <line x1="233" y1="228" x2="233" y2="260" stroke="#4d0714" strokeWidth="0.8" opacity="0.6" />
+          <line x1="291" y1="228" x2="291" y2="260" stroke="#4d0714" strokeWidth="0.8" opacity="0.6" />
 
           {/* Floor-to-ceiling glass windows (first floor) */}
-          <rect x="195" y="152" width="145" height="74" fill="url(#cad-glass)" stroke="#1a2744" strokeWidth="1.4" />
-          <line x1="267" y1="152" x2="267" y2="226" stroke="#1a2744" strokeWidth="1.2" />
+          <rect x="195" y="152" width="145" height="74" fill="url(#cad-glass)" stroke="#4d0714" strokeWidth="1.4" />
+          <line x1="267" y1="152" x2="267" y2="226" stroke="#4d0714" strokeWidth="1.2" />
 
           {/* Ground floor expansive glass facade */}
-          <rect x="215" y="280" width="210" height="102" fill="url(#cad-glass)" stroke="#1a2744" strokeWidth="1.4" />
-          <line x1="285" y1="280" x2="285" y2="382" stroke="#1a2744" strokeWidth="1.2" />
-          <line x1="355" y1="280" x2="355" y2="382" stroke="#1a2744" strokeWidth="1.2" />
+          <rect x="215" y="280" width="210" height="102" fill="url(#cad-glass)" stroke="#4d0714" strokeWidth="1.4" />
+          <line x1="285" y1="280" x2="285" y2="382" stroke="#4d0714" strokeWidth="1.2" />
+          <line x1="355" y1="280" x2="355" y2="382" stroke="#4d0714" strokeWidth="1.2" />
 
           {/* Modern grand entrance door with teak finish */}
-          <rect x="455" y="282" width="60" height="100" rx="2" fill="#78350f" stroke="#1a2744" strokeWidth="1.4" />
+          <rect x="455" y="282" width="60" height="100" rx="2" fill="#78350f" stroke="#4d0714" strokeWidth="1.4" />
           <rect x="502" y="322" width="4" height="26" rx="2" fill="#f8fafc" />
 
           {/* Architectural porch canopy over door */}
@@ -426,9 +426,9 @@ export default function BuildScene({ step }: { step: number }) {
           <rect x="197" y="154" width="141" height="70" fill="url(#cad-warm-light)" opacity="0.85" />
           <rect x="217" y="282" width="206" height="98" fill="url(#cad-warm-light)" opacity="0.85" />
           {/* Architectural pendant light silhouette */}
-          <line x1="267" y1="154" x2="267" y2="182" stroke="#1a2744" strokeWidth="1.2" />
+          <line x1="267" y1="154" x2="267" y2="182" stroke="#4d0714" strokeWidth="1.2" />
           <circle cx="267" cy="186" r="6" fill="#f59e0b" opacity="0.9" />
-          <line x1="320" y1="282" x2="320" y2="310" stroke="#1a2744" strokeWidth="1.2" />
+          <line x1="320" y1="282" x2="320" y2="310" stroke="#4d0714" strokeWidth="1.2" />
           <circle cx="320" cy="314" r="6" fill="#f59e0b" opacity="0.9" />
         </g>
       </L>
@@ -467,7 +467,7 @@ export default function BuildScene({ step }: { step: number }) {
             <g key={label} transform={`translate(${x}, ${y})`}>
               <circle cx="0" cy="0" r="14" fill="#16a34a" />
               <path d="M-6 0l4 4 8-8" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              <rect x="-42" y="18" width="84" height="15" rx="3" fill="#1a2744" opacity="0.95" />
+              <rect x="-42" y="18" width="84" height="15" rx="3" fill="#4d0714" opacity="0.95" />
               <text x="0" y="29" fill="#ffffff" fontSize="7" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
                 {label} ✓
               </text>
@@ -480,11 +480,11 @@ export default function BuildScene({ step }: { step: number }) {
       <L step={step} from={19}>
         <g transform="translate(560, 255)">
           {/* Handover key badge */}
-          <rect x="-10" y="0" width="160" height="78" rx="8" fill="#1a2744" opacity="0.95" />
-          <rect x="-8" y="2" width="156" height="74" rx="6" fill="none" stroke="#FF5E00" strokeWidth="1.2" opacity="0.8" />
+          <rect x="-10" y="0" width="160" height="78" rx="8" fill="#4d0714" opacity="0.95" />
+          <rect x="-8" y="2" width="156" height="74" rx="6" fill="none" stroke="#ff7700" strokeWidth="1.2" opacity="0.8" />
 
           {/* Brass Key icon */}
-          <g transform="translate(24, 38)" stroke="#FF5E00" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" fill="none">
+          <g transform="translate(24, 38)" stroke="#ff7700" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" fill="none">
             <circle cx="0" cy="0" r="9" />
             <line x1="8" y1="0" x2="28" y2="0" />
             <line x1="20" y1="0" x2="20" y2="7" />
@@ -494,7 +494,7 @@ export default function BuildScene({ step }: { step: number }) {
           <text x="75" y="32" fill="#ffffff" fontSize="10.5" fontFamily="monospace" fontWeight="bold">
             HANDED OVER
           </text>
-          <text x="75" y="47" fill="#FF5E00" fontSize="8.5" fontFamily="monospace" fontWeight="bold">
+          <text x="75" y="47" fill="#ff7700" fontSize="8.5" fontFamily="monospace" fontWeight="bold">
             ON SCHEDULE · ON BUDGET
           </text>
           <text x="75" y="60" fill="#94a3b8" fontSize="7.5" fontFamily="monospace">

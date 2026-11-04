@@ -55,6 +55,17 @@ const SERVICES = [
 export default function CoreServices() {
   return (
     <section id="services" className="relative bg-surface pt-16 md:pt-20">
+      {/* Decorative Rangoli watermark backdrop */}
+      <div
+        className="pointer-events-none absolute right-4 top-10 h-72 w-72 opacity-[0.05] select-none text-[#C5A059]"
+        style={{
+          backgroundImage: "url(/theme/rangoli.svg)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "contain",
+        }}
+        aria-hidden="true"
+      />
       {/* The homepage's display step. "Five core services", not "five
           disciplines" — the full list lives on the Services page; this strip
           shows the five a visitor is most likely to be shopping for, so the
@@ -148,7 +159,7 @@ export default function CoreServices() {
                 the same wash covered the picture completely — here it
                 holds solid only up to 52%, under the text, and clears
                 above it. */
-                className="absolute inset-0 bg-gradient-to-t from-navy from-46% via-navy/35 via-76% to-transparent transition duration-500 group-hover:from-navy/85 group-hover:via-navy/20 md:from-0% md:via-navy/60 md:via-50%"
+                className="absolute inset-0 bg-gradient-to-t from-[#241A05] from-46% via-[#241A05]/45 via-76% to-transparent transition duration-500 group-hover:from-[#241A05]/85 group-hover:via-[#241A05]/20 md:from-0% md:via-[#241A05]/60 md:via-50%"
                 aria-hidden="true"
               />
 
@@ -162,7 +173,7 @@ export default function CoreServices() {
                 {/* A short rule in place of the icon badge — enough to anchor
                     the title without putting a symbol back. */}
                 <span
-                  className="h-0.5 w-9 rounded-full bg-brand transition-all duration-500 group-hover:w-14"
+                  className="h-0.5 w-9 rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 group-hover:w-14"
                   aria-hidden="true"
                 />
 
@@ -186,7 +197,7 @@ export default function CoreServices() {
                     destination should have been. */}
                 <span className="sr-only">{imgAlt}</span>
 
-                <span className="montserrat font-700 inline-flex items-center gap-1 text-[12px] text-orange-300 transition duration-500 md:translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+                <span className="montserrat font-700 inline-flex items-center gap-1 text-[12px] text-gold-light transition duration-500 md:translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 group-hover:text-primary">
                   Explore
                   <ArrowUpRight size={13} strokeWidth={2.4} aria-hidden="true" />
                 </span>

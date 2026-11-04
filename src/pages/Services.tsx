@@ -140,7 +140,7 @@ export default function Services() {
       {/* ── The services ──────────────────────────────────────────── */}
       <section className="border-y border-hairline bg-surface py-14 lg:py-16">
         <div className={SITE_CONTAINER}>
-          <SectionTitle title="SERVICES WE PROVIDE" align="left" className="mb-8" />
+          <SectionTitle title="SERVICES WE PROVIDE" align="left" accentBar className="mb-8" />
         </div>
 
         {/* Full-bleed, divided by hairline seams rather than boxed into cards —
@@ -150,7 +150,7 @@ export default function Services() {
           {SERVICES.map(({ title, copy }) => (
             <article key={title} className="group flex flex-col gap-3.5 bg-surface p-7 lg:p-8">
               <span
-                className="h-0.5 w-9 flex-none rounded-full bg-brand transition-all duration-500 group-hover:w-14"
+                className="h-0.5 w-9 flex-none rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 group-hover:w-14"
                 aria-hidden="true"
               />
               <h3 className="montserrat font-800 text-[15px] leading-snug text-navy">{title}</h3>
@@ -159,7 +159,7 @@ export default function Services() {
           ))}
           <article className="group flex flex-col gap-3.5 bg-surface p-7 sm:col-span-2 lg:p-8">
             <span
-              className="h-0.5 w-9 flex-none rounded-full bg-brand transition-all duration-500 group-hover:w-14"
+              className="h-0.5 w-9 flex-none rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 group-hover:w-14"
               aria-hidden="true"
             />
             <h3 className="montserrat font-800 text-[15px] leading-snug text-navy">

@@ -91,9 +91,10 @@ export default function Footer({ cta }: FooterProps) {
 
   return (
     <footer
-      className="relative overflow-hidden text-white"
+      className="relative overflow-hidden text-[#E4DFD5]"
       style={{
-        background: "linear-gradient(165deg, #0d1527 0%, #111c35 55%, #080d19 100%)",
+        background: "linear-gradient(165deg, #151518 0%, #1F1E24 45%, #121215 100%)",
+        borderTop: "2px solid #C5A059",
       }}
     >
       {/* Blueprint grid background */}
@@ -109,38 +110,32 @@ export default function Footer({ cta }: FooterProps) {
         aria-hidden="true"
       />
 
-      {/* Subtle warm orange ambient light */}
+      {/* Elegant warm gold ambient glow */}
       <div
-        className="pointer-events-none absolute -left-20 top-0 h-[360px] w-[360px] rounded-full blur-3xl opacity-15"
-        style={{ background: "radial-gradient(circle, rgba(255,94,0,0.35) 0%, transparent 70%)" }}
+        className="pointer-events-none absolute inset-x-0 top-0 h-[260px] blur-3xl opacity-20"
+        style={{ background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(197,160,89,0.3) 0%, transparent 75%)" }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -left-20 top-20 h-[340px] w-[340px] rounded-full blur-3xl opacity-15"
+        style={{ background: "radial-gradient(circle, rgba(197,160,89,0.3) 0%, transparent 70%)" }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute right-0 bottom-0 h-[340px] w-[340px] rounded-full blur-3xl opacity-15"
+        style={{ background: "radial-gradient(circle, rgba(255,158,44,0.3) 0%, transparent 70%)" }}
         aria-hidden="true"
       />
 
       {/* ── Integrated Pre-Footer CTA (if provided) ────────────────── */}
       {cta && (
         <div className="relative isolate">
-          {/* 50/50 background split: top half is white to match page content, bottom half is #0d1527 to match footer */}
-          {/* The upper half is `surface`, not white, so it continues the grey
-              the last page section ends on instead of inserting a white stripe
-              between that grey and the navy footer. The card itself stays
-              white, which is what makes it read as lifted off the band. */}
+          {/* 50/50 background split */}
           <div className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-surface" aria-hidden="true" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[#0d1527]" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[#151518]" aria-hidden="true" />
 
-          {/* Padding stays symmetric so the card keeps straddling the 50/50
-              split, and is deep enough that the figure standing proud of the
-              card's top edge is not clipped by the footer's overflow. */}
           <div className={`${SITE_CONTAINER} relative z-10 py-10 sm:py-14`}>
-            {/* A single-line strip rather than a stacked block: one statement,
-                one action. The pale ground is a deliberate break from the navy
-                blueprint panels used elsewhere — sitting between a white page
-                and a near-black footer, a light bar reads as a divider you act
-                on rather than as another dark section competing with both. */}
-            {/* No `overflow-hidden`: the figure stands on the strip's bottom
-                edge and rises clear of its top. The brand colour moves from an
-                absolutely-placed bar to a left border so it still follows the
-                corner radius without clipping. */}
-            <div className="relative border border-l-4 border-slate-200/70 border-l-orange-500 bg-white px-6 py-5 shadow-[0_20px_50px_-24px_rgba(8,13,25,0.55)] sm:px-8 lg:px-10">
+            <div className="relative border border-l-4 border-slate-200/70 border-l-primary bg-white px-6 py-5 shadow-[0_20px_50px_-24px_rgba(15,15,18,0.45)] sm:px-8 lg:px-10">
               {/* Purely decorative, so it is hidden from assistive tech and
                   dropped below sm where there is no room for it. */}
               <img
@@ -214,7 +209,7 @@ export default function Footer({ cta }: FooterProps) {
         <div className="grid grid-cols-2 gap-x-6 gap-y-9 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1.1fr_1.3fr] lg:gap-10">
           {/* Column 1: Brand & Overview */}
           <div className="col-span-2 lg:col-span-1 lg:pr-4">
-            <Link to="/" className="mb-4 inline-flex items-center gap-2.5">
+            <Link to="/" className="mb-3 inline-flex items-center gap-2.5">
               <img
                 src={v4Logo}
                 alt="Reena Design & Construction logo"
@@ -224,34 +219,47 @@ export default function Footer({ cta }: FooterProps) {
                 className="h-10 w-10 object-contain"
               />
               <div>
-                <div className="allura text-[26px] leading-none text-orange-400">Reena</div>
-                <div className="poppins text-[9px] font-semibold uppercase tracking-[0.16em] text-orange-400">
+                <div className="allura text-[28px] leading-none text-[#FFB35A]">Reena</div>
+                <div className="poppins text-[9px] font-semibold uppercase tracking-[0.16em] text-[#FFB35A]">
                   Design &amp; Construction
                 </div>
               </div>
             </Link>
 
-            <p className="mb-4 max-w-sm text-xs leading-relaxed text-white/65">
+            {/* Festive Campaign Emblem & Diya */}
+            <div className="my-3.5 flex items-center gap-3">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-2 backdrop-blur-sm">
+                <img
+                  src="/theme/ghar-roshan-light.png"
+                  alt="Ghar Roshan, Sapne Roshan"
+                  className="h-12 sm:h-14 w-auto object-contain filter drop-shadow-[0_2px_10px_rgba(197,160,89,0.35)]"
+                />
+              </div>
+              <img
+                src="/theme/diya-decor.png"
+                alt=""
+                aria-hidden="true"
+                className="h-12 sm:h-14 w-auto object-contain filter drop-shadow-[0_4px_14px_rgba(255,158,44,0.45)]"
+              />
+            </div>
+
+            <p className="mb-4 max-w-sm text-xs leading-relaxed text-[#E0CFA7]">
               Medinipur's design-led construction firm. Turnkey civil building, architecture,
               and interior design under fixed contractual handover timelines.
             </p>
 
             {/* Compact Stats */}
-            <div className="grid grid-cols-3 gap-2 border-y border-white/[0.08] py-3 my-4 max-w-sm">
+            <div className="grid grid-cols-3 gap-2 border-y border-[#C5A059]/30 py-3 my-4 max-w-sm bg-black/20 px-3 rounded-lg">
               {STATS.map(({ value, label }) => (
                 <div key={label}>
-                  <div className="montserrat font-800 text-base text-white">{value}</div>
-                  <div className="text-[10px] uppercase tracking-wider text-white/65">{label}</div>
+                  <div className="montserrat font-800 text-base text-[#DFCCA6]">{value}</div>
+                  <div className="text-[10px] uppercase tracking-wider text-[#C5A059] font-semibold">{label}</div>
                 </div>
               ))}
             </div>
 
             {/* Social channels */}
             <div className="flex items-center gap-2">
-              {/* Each mark lights up in its own brand colour rather than all
-                  five going orange — the row was previously indistinguishable
-                  on hover. The colour is handed in as a custom property so
-                  hover and keyboard focus share one definition. */}
               {SOCIAL_LIST.map(({ label, href, Icon, colour }) => (
                 <a
                   key={label}
@@ -259,7 +267,7 @@ export default function Footer({ cta }: FooterProps) {
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={`${SITE.name} on ${label}`}
-                  className="flex h-9 w-9 items-center justify-center bg-white/[0.06] text-white/55 ring-1 ring-white/10 transition duration-200 hover:-translate-y-0.5 hover:bg-(--c) hover:text-white hover:ring-(--c) focus-visible:bg-(--c) focus-visible:text-white focus-visible:ring-(--c)"
+                  className="flex h-9 w-9 items-center justify-center bg-white/10 text-[#DFCCA6] ring-1 ring-[#C5A059]/40 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-(--c) hover:text-white hover:ring-(--c) focus-visible:bg-(--c) focus-visible:text-white focus-visible:ring-(--c)"
                   style={{ "--c": colour } as React.CSSProperties}
                 >
                   <Icon size={14} />
@@ -270,23 +278,23 @@ export default function Footer({ cta }: FooterProps) {
 
           {/* Column 2: Explore Navigation */}
           <div>
-            <h2 className="montserrat font-800 mb-3.5 text-[11px] uppercase tracking-[0.18em] text-white">
+            <h2 className="montserrat font-800 mb-3.5 text-[11px] uppercase tracking-[0.18em] text-[#DFCCA6]">
               Explore
-              <span className="mt-2 block h-0.5 w-6 rounded-full bg-orange-500" aria-hidden="true" />
+              <span className="mt-2 block h-0.5 w-7 rounded-full bg-gradient-to-r from-primary to-secondary" aria-hidden="true" />
             </h2>
             <ul className="space-y-2">
               {EXPLORE_LINKS.map(([label, href]) => (
                 <li key={label}>
                   <Link
                     to={href}
-                    className="group inline-flex items-center gap-1 text-xs text-white/60 transition-colors duration-200 hover:text-white"
+                    className="group inline-flex items-center gap-1 text-xs text-[#CFC5B6] font-medium transition-colors duration-200 hover:text-white"
                   >
                     <span>{label}</span>
                     <ArrowUpRight
                       size={11}
                       strokeWidth={2.2}
                       aria-hidden="true"
-                      className="opacity-0 -translate-x-1 transition-all duration-200 group-hover:translate-x-0 group-hover:text-orange-400 group-hover:opacity-100"
+                      className="opacity-0 -translate-x-1 transition-all duration-200 group-hover:translate-x-0 group-hover:text-primary group-hover:opacity-100"
                     />
                   </Link>
                 </li>
@@ -296,23 +304,23 @@ export default function Footer({ cta }: FooterProps) {
 
           {/* Column 3: Services */}
           <div>
-            <h2 className="montserrat font-800 mb-3.5 text-[11px] uppercase tracking-[0.18em] text-white">
+            <h2 className="montserrat font-800 mb-3.5 text-[11px] uppercase tracking-[0.18em] text-[#DFCCA6]">
               Services
-              <span className="mt-2 block h-0.5 w-6 rounded-full bg-orange-500" aria-hidden="true" />
+              <span className="mt-2 block h-0.5 w-7 rounded-full bg-gradient-to-r from-primary to-secondary" aria-hidden="true" />
             </h2>
             <ul className="space-y-2">
               {SERVICE_LINKS.map(([label, href]) => (
                 <li key={label}>
                   <Link
                     to={href}
-                    className="group inline-flex items-center gap-1 text-xs text-white/60 transition-colors duration-200 hover:text-white"
+                    className="group inline-flex items-center gap-1 text-xs text-[#CFC5B6] font-medium transition-colors duration-200 hover:text-white"
                   >
                     <span>{label}</span>
                     <ArrowUpRight
                       size={11}
                       strokeWidth={2.2}
                       aria-hidden="true"
-                      className="opacity-0 -translate-x-1 transition-all duration-200 group-hover:translate-x-0 group-hover:text-orange-400 group-hover:opacity-100"
+                      className="opacity-0 -translate-x-1 transition-all duration-200 group-hover:translate-x-0 group-hover:text-primary group-hover:opacity-100"
                     />
                   </Link>
                 </li>
@@ -320,33 +328,30 @@ export default function Footer({ cta }: FooterProps) {
             </ul>
           </div>
 
-          {/* Column 4: Office Info.
-              Spans both columns on mobile — the address, phone numbers and
-              hours are the reason most phone visitors reach the footer at all,
-              and squeezing them into a half-width column wrapped every line. */}
+          {/* Column 4: Office Info. */}
           <div className="col-span-2 lg:col-span-1">
-            <h2 className="montserrat font-800 mb-3.5 text-[11px] uppercase tracking-[0.18em] text-white">
+            <h2 className="montserrat font-800 mb-3.5 text-[11px] uppercase tracking-[0.18em] text-[#DFCCA6]">
               Head Office
-              <span className="mt-2 block h-0.5 w-6 rounded-full bg-orange-500" aria-hidden="true" />
+              <span className="mt-2 block h-0.5 w-7 rounded-full bg-gradient-to-r from-primary to-secondary" aria-hidden="true" />
             </h2>
 
             <div className="space-y-3 text-xs">
               <div className="flex items-start gap-2.5">
-                <MapPin size={14} className="mt-0.5 flex-none text-orange-400" />
-                <div className="leading-relaxed text-white/65">
+                <MapPin size={14} className="mt-0.5 flex-none text-primary" />
+                <div className="leading-relaxed text-[#CFC5B6]">
                   <div>{ADDRESS_LINE_1}</div>
                   <div>{ADDRESS_LINE_2}</div>
                 </div>
               </div>
 
               <div className="flex items-start gap-2.5">
-                <Phone size={14} className="mt-0.5 flex-none text-orange-400" />
+                <Phone size={14} className="mt-0.5 flex-none text-primary" />
                 <div className="space-y-0.5">
                   {SITE.phones.map((phone) => (
                     <a
                       key={phone}
                       href={`tel:${phone.replace(/\s+/g, "")}`}
-                      className="block text-white/65 transition-colors hover:text-white"
+                      className="block text-[#CFC5B6] font-medium transition-colors hover:text-white"
                     >
                       {phone}
                     </a>
@@ -355,29 +360,29 @@ export default function Footer({ cta }: FooterProps) {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Mail size={14} className="flex-none text-orange-400" />
+                <Mail size={14} className="flex-none text-secondary" />
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="text-white/65 transition-colors hover:text-white"
+                  className="text-[#CFC5B6] font-medium transition-colors hover:text-white"
                 >
                   {SITE.email}
                 </a>
               </div>
 
               <div className="flex items-start gap-2.5">
-                <Clock size={14} className="mt-0.5 flex-none text-orange-400" />
-                <div className="text-white/65">
+                <Clock size={14} className="mt-0.5 flex-none text-secondary" />
+                <div className="text-[#CFC5B6]">
                   <div>{SITE.hours}</div>
                 </div>
               </div>
 
               {/* Regulatory Assurance */}
-              <div className="mt-3 border border-white/10 bg-white/[0.03] p-2.5">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-orange-300">
-                  <ShieldCheck size={13} className="text-orange-400" />
+              <div className="mt-3 border border-[#C5A059]/40 bg-white/5 backdrop-blur-sm p-2.5 shadow-sm">
+                <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#DFCCA6]">
+                  <ShieldCheck size={13} className="text-primary" />
                   <span>Licensed Civil Engineers</span>
                 </div>
-                <p className="mt-0.5 text-[10.5px] leading-4 text-white/65">
+                <p className="mt-0.5 text-[10.5px] leading-4 text-[#CFC5B6]">
                   Municipal approval compliant sanction drawings &amp; structural safety.
                 </p>
               </div>
@@ -387,30 +392,30 @@ export default function Footer({ cta }: FooterProps) {
       </div>
 
       {/* ── Bottom Legal Bar ───────────────────────────────────────── */}
-      <div className="relative z-10 border-t border-white/[0.08] bg-black/25">
+      <div className="relative z-10 border-t border-white/10 bg-black/40">
         <div
           className={`${SITE_CONTAINER} flex flex-col items-center justify-between gap-3 py-4 text-center md:flex-row md:text-left`}
         >
-          <div className="text-xs text-white/65">
+          <div className="text-xs text-[#CFC5B6] font-medium">
             <span>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</span>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             <Link
               to="/privacy"
-              className="text-xs text-white/65 transition-colors hover:text-white"
+              className="text-xs text-[#CFC5B6] font-medium transition-colors hover:text-white"
             >
               Privacy Policy
             </Link>
             <Link
               to="/cookies"
-              className="text-xs text-white/65 transition-colors hover:text-white"
+              className="text-xs text-[#CFC5B6] font-medium transition-colors hover:text-white"
             >
               Cookie Policy
             </Link>
             <Link
               to="/terms"
-              className="text-xs text-white/65 transition-colors hover:text-white"
+              className="text-xs text-[#CFC5B6] font-medium transition-colors hover:text-white"
             >
               Terms &amp; Conditions
             </Link>
@@ -418,13 +423,13 @@ export default function Footer({ cta }: FooterProps) {
             <button
               onClick={scrollToTop}
               type="button"
-              className="group inline-flex items-center gap-1 border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs text-white/65 transition duration-200 hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-white cursor-pointer"
+              className="group inline-flex items-center gap-1 border border-[#C5A059]/50 bg-white/10 px-2.5 py-1 text-xs text-[#DFCCA6] font-semibold shadow-sm transition duration-200 hover:border-primary hover:bg-[#C5A059] hover:text-[#0F0F12] cursor-pointer"
               aria-label="Scroll back to top"
             >
               <span>Top</span>
               <ArrowUp
                 size={11}
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 text-orange-400"
+                className="transition-transform duration-300 group-hover:-translate-y-0.5 text-primary"
               />
             </button>
           </div>

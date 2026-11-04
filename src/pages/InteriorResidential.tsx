@@ -370,7 +370,7 @@ export default function InteriorResidential() {
                 <div className="mt-6 grid flex-none gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div>
                     <div className="montserrat font-800 flex items-center gap-2 border-b border-hairline pb-2 text-[10.5px] uppercase tracking-[0.18em] text-navy">
-                      <Sparkles size={12} strokeWidth={2} className="text-brand" aria-hidden="true" />
+                      <Sparkles size={12} strokeWidth={2} className="text-primary" aria-hidden="true" />
                       Materials
                     </div>
                     {/* A ruled list rather than a cloud of pills: this is a
@@ -386,7 +386,7 @@ export default function InteriorResidential() {
 
                   <div>
                     <div className="montserrat font-800 flex items-center gap-2 border-b border-hairline pb-2 text-[10.5px] uppercase tracking-[0.18em] text-navy">
-                      <ListChecks size={12} strokeWidth={2} className="text-brand" aria-hidden="true" />
+                      <ListChecks size={12} strokeWidth={2} className="text-primary" aria-hidden="true" />
                       Scope of work
                     </div>
                     <ol className="divide-y divide-hairline">

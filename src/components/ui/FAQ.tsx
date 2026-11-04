@@ -21,7 +21,7 @@ export default function FAQ({ showLabel = true }: { showLabel?: boolean } = {}) 
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{
           backgroundImage:
-            "linear-gradient(to right, rgba(26,39,68,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(26,39,68,0.05) 1px, transparent 1px)",
+            "linear-gradient(to right, rgba(77,7,20,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(77,7,20,0.05) 1px, transparent 1px)",
           backgroundSize: "44px 44px",
           maskImage: "radial-gradient(100% 80% at 50% 30%, #000 30%, transparent 100%)",
           WebkitMaskImage: "radial-gradient(100% 80% at 50% 30%, #000 30%, transparent 100%)",
@@ -80,7 +80,7 @@ export default function FAQ({ showLabel = true }: { showLabel?: boolean } = {}) 
                   >
                     <span
                       className="montserrat font-800 mt-0.5 flex-none text-[11px] tabular-nums transition-colors"
-                      style={{ color: isOpen ? "var(--color-brand)" : "#cbd5e1" }}
+                      style={{ color: isOpen ? "var(--color-primary)" : "#cbd5e1" }}
                       aria-hidden="true"
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -94,8 +94,8 @@ export default function FAQ({ showLabel = true }: { showLabel?: boolean } = {}) 
                     <span
                       className={`mt-0.5 inline-flex h-7 w-7 flex-none items-center justify-center rounded-full border transition-all duration-300 ${
                         isOpen
-                          ? "rotate-45 border-orange-300 bg-orange-50 text-orange-600"
-                          : "border-slate-200 text-slate-500 group-hover:border-orange-300 group-hover:text-orange-500"
+                          ? "rotate-45 border-gold-light bg-gold-soft text-primary"
+                          : "border-slate-200 text-slate-500 group-hover:border-gold-light group-hover:text-primary"
                       }`}
                       aria-hidden="true"
                     >

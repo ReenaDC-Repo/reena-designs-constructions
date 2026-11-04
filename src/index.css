@@ -34,30 +34,63 @@
 }
 
 /* ── Brand tokens ───────────────────────────────────────────────────
-   Tailwind v4 turns each of these into a full utility family, so
-   `--color-navy` gives text-navy / bg-navy / border-navy and so on.
-   These two colours appeared as raw hex literals over 200 times across
-   the components; defining them once means a rebrand is an edit here
-   rather than a site-wide find-and-replace. */
+   New Theme Palette (Architectural Champagne Gold & Warm Saffron):
+   - Primary:   #C5A059 (Brushed Champagne Gold)
+   - Secondary: #FF9E2C (Warm Saffron / Marigold)
+   - Tertiary:  #E65100 (Deep Saffron / Flame Orange)
+   - Neutral:   #0F0F12 (Obsidian Deep Dark)
+   Tailwind v4 maps each of these into utility families. */
 @theme {
-  --color-navy: #1a2744;
-  --color-navy-deep: #111a2e;
-  --color-navy-soft: #23355c;
-  --color-brand: #FF5E00;
-  --color-brand-light: #FF7A2F;
-  /* The brand orange, stepped down until it is legible as text.
-     #FF5E00 measures 3.06:1 on white — it is a fill colour, not a text
-     colour, and it was being used for both. Every place it carried words
-     (the active nav link most importantly, plus section eyebrows, team
-     roles and inline links) failed AA by a wide margin. This is the same
-     hue at 5.18:1.
+  /* ── Neutral / Foundation (#0F0F12) ── */
+  --color-neutral: #0F0F12;
+  --color-neutral-deep: #08080A;
+  --color-neutral-soft: #18181D;
+  --color-neutral-border: #26262E;
 
-     The rule: `brand` for fills, rules, borders and accent bars, where
-     contrast requirements do not apply; `brand-ink` for anything a
-     visitor has to read. */
-  --color-brand-ink: #C2410C;
-  --color-hairline: #e8e8e8;
-  --color-surface: #f7f7f7;
+  /* Aliasing legacy navy utility tokens to Neutral (#0F0F12) */
+  --color-navy: #0F0F12;
+  --color-navy-deep: #08080A;
+  --color-navy-soft: #18181D;
+
+  /* ── Primary: Brushed Champagne Gold (#C5A059) ── */
+  --color-primary: #C5A059;
+  --color-gold: #C5A059;
+  --color-gold-light: #DFCCA6;
+  --color-gold-deep: #93712B;
+  --color-gold-ink: #6E531D;
+  --color-gold-soft: #F9F5EC;
+
+  /* ── Secondary: Warm Saffron / Marigold (#FF9E2C) ── */
+  --color-secondary: #FF9E2C;
+  --color-saffron: #FF9E2C;
+  --color-saffron-light: #FFB35A;
+  --color-saffron-soft: #FFF7ED;
+
+  /* Brand main token maps to Secondary Saffron */
+  --color-brand: #FF9E2C;
+  --color-brand-light: #FFB35A;
+
+  /* ── Tertiary: Deep Saffron / Flame Orange (#E65100) ── */
+  --color-tertiary: #E65100;
+  --color-tertiary-light: #FF6D00;
+  --color-tertiary-deep: #BF360C;
+
+  /* Brand ink (for accessible high-contrast reading text on light grounds, > 5:1) */
+  --color-brand-ink: #E65100;
+
+  /* Supporting surface & hairlines */
+  --color-hairline: #E5E5EB;
+  --color-surface: #F8F8FA;
+
+  /* Backward-compatible aliases mapping legacy tokens to new palette */
+  --color-hotpink: #C5A059;
+  --color-hotpink-light: #DFCCA6;
+  --color-hotpink-deep: #93712B;
+  --color-hotpink-ink: #E65100;
+  --color-hotpink-soft: #F9F5EC;
+  --color-maroon: #0F0F12;
+  --color-maroon-deep: #08080A;
+  --color-maroon-soft: #18181D;
 }
 
 
@@ -136,7 +169,7 @@ body {
      round. Components that need a different offset or colour still set
      their own; this is only the baseline. */
   :focus-visible {
-    outline: 2px solid var(--color-brand);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 }
@@ -148,37 +181,42 @@ body {
 @layer components {
   /* Square corners, per the button spec sheet: the primary action is a solid
      accent fill with no radius. `focus-visible` (not `focus`) so the ring is
-     shown to keyboard users without firing on a mouse press — before this
-     neither button had any focus indicator at all, which left keyboard users
-     with nothing to follow. The offset puts the ring on the surrounding
-     surface rather than on the orange fill, where it would disappear. */
-  .btn-orange {
-    @apply inline-flex items-center justify-center bg-orange-500 px-5 py-3 text-sm font-bold text-white transition duration-200 hover:bg-orange-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500;
+     shown to keyboard users without firing on a mouse press. */
+  .btn-orange,
+  .btn-saffron {
+    @apply inline-flex items-center justify-center bg-brand px-5 py-3 text-sm font-bold text-neutral-deep transition duration-200 hover:bg-brand-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary shadow-md shadow-brand/20;
+  }
+
+  .btn-primary,
+  .btn-gold {
+    @apply inline-flex items-center justify-center bg-primary px-5 py-3 text-sm font-bold text-neutral-deep transition duration-200 hover:bg-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shadow-md shadow-primary/25;
+  }
+
+  .btn-tertiary {
+    @apply inline-flex items-center justify-center bg-tertiary px-5 py-3 text-sm font-bold text-white transition duration-200 hover:bg-tertiary-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary shadow-md shadow-tertiary/25;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-800 transition duration-200 hover:border-orange-400 hover:text-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500;
+    @apply inline-flex items-center justify-center border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-800 transition duration-200 hover:border-primary hover:text-brand-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
   }
 
-  /* The third button in the system, and the one that was missing.
-
-     Three call sites — the FAQ's "Ask our team", the service-areas
-     "Book a free site visit" and the 404's "Back to home" — each
-     hand-rolled a navy button with an inline `background: "#1a2744"` and
-     its own radius, because there was nothing to reach for. Same square
-     geometry and padding as the other two, so the three read as one
-     family. */
-  /* The navy lockup gradient. Written out by hand in six places — the chat
-     header and its three avatar marks, the About team initials and the
-     testimonial initials — each as an inline `linear-gradient(135deg,
-     #1a2744 0%, #23355c 100%)`. Both stops are tokens, so a rebrand reaches
-     it. */
-  .grad-navy {
+  /* The lockup gradients for the theme */
+  .grad-navy,
+  .grad-neutral {
     background-image: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-soft) 100%);
   }
 
-  .btn-navy {
-    @apply inline-flex items-center justify-center bg-navy px-5 py-3 text-sm font-bold text-white transition duration-200 hover:bg-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy;
+  .grad-gold-saffron {
+    background-image: linear-gradient(135deg, var(--color-gold) 0%, var(--color-secondary) 100%);
+  }
+
+  .grad-saffron-flame {
+    background-image: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-tertiary) 100%);
+  }
+
+  .btn-navy,
+  .btn-neutral {
+    @apply inline-flex items-center justify-center bg-navy px-5 py-3 text-sm font-bold text-white transition duration-200 hover:bg-primary hover:text-neutral-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
   }
 }
 
@@ -305,7 +343,7 @@ body {
   }
 
   .field:focus {
-    @apply border-brand ring-2 ring-orange-500/20;
+    @apply border-secondary ring-2 ring-secondary/20;
   }
   .field::placeholder {
     @apply text-slate-400;
@@ -469,7 +507,7 @@ body {
   position: absolute;
   inset: -3px;
   border-radius: 9999px;
-  border: 2px solid rgba(255, 94, 0, 0.5);
+  border: 2px solid rgba(255, 158, 44, 0.65);
   animation: chat-ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
@@ -504,19 +542,15 @@ body {
   .bs-layer.is-on { transform: none; }
 }
 
-/* ── High-tech scrollbar ────────────────────────────────────────────
+/* ── High-tech scrollbar (Primary Gold -> Secondary Saffron -> Tertiary Flame) ───────
    A slim track with an inset rail line and a gradient thumb that
    brightens on grab. The thumb is inset via a transparent border with
    `background-clip: content-box`, which is the only reliable way to pad
    a WebKit thumb away from the track edges. */
-/* Firefox has no ::-webkit-scrollbar, so it gets the standard properties.
-   These are scoped: in Chrome and Safari, setting `scrollbar-width` to
-   anything other than `auto` makes the engine ignore every
-   ::-webkit-scrollbar rule below, throwing away the gradient thumb. */
 @supports not selector(::-webkit-scrollbar) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: #FF5E00 rgba(26, 39, 68, 0.08);
+    scrollbar-color: #FF9E2C rgba(197, 160, 89, 0.12);
   }
 }
 
@@ -529,8 +563,8 @@ body {
   background: linear-gradient(
     to right,
     transparent calc(50% - 1px),
-    rgba(26, 39, 68, 0.13) calc(50% - 1px),
-    rgba(26, 39, 68, 0.13) calc(50% + 1px),
+    rgba(197, 160, 89, 0.14) calc(50% - 1px),
+    rgba(197, 160, 89, 0.14) calc(50% + 1px),
     transparent calc(50% + 1px)
   );
 }
@@ -539,14 +573,14 @@ body {
   background: linear-gradient(
     to bottom,
     transparent calc(50% - 1px),
-    rgba(26, 39, 68, 0.13) calc(50% - 1px),
-    rgba(26, 39, 68, 0.13) calc(50% + 1px),
+    rgba(197, 160, 89, 0.14) calc(50% - 1px),
+    rgba(197, 160, 89, 0.14) calc(50% + 1px),
     transparent calc(50% + 1px)
   );
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #1a2744 0%, #2b3f68 45%, #FF5E00 100%);
+  background: linear-gradient(180deg, #C5A059 0%, #FF9E2C 50%, #E65100 100%);
   background-clip: content-box;
   border: 3px solid transparent;
   border-radius: 999px;
@@ -554,13 +588,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #2b3f68 0%, #FF7A2F 55%, #FF5E00 100%);
+  background: linear-gradient(180deg, #DFCCA6 0%, #FFB35A 50%, #FF6D00 100%);
   background-clip: content-box;
   border-width: 2px;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(180deg, #FF7A2F 0%, #FF5E00 100%);
+  background: linear-gradient(180deg, #FF9E2C 0%, #E65100 100%);
   background-clip: content-box;
   border-width: 2px;
 }
@@ -722,7 +756,7 @@ textarea:disabled,
     animation-delay: calc(0.15s + var(--i, 0) * 0.14s);
   }
   .hero-word-accent {
-    background-image: linear-gradient(100deg, #f97316 0%, #f97316 40%, #fed7aa 50%, #f97316 60%, #f97316 100%);
+    background-image: linear-gradient(100deg, #C5A059 0%, #DFCCA6 25%, #FF9E2C 60%, #E65100 100%);
     background-size: 250% 100%;
     background-position: 100% 0;
     -webkit-background-clip: text;

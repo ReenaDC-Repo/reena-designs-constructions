@@ -34,6 +34,17 @@ const ARTWORK_MASK = {
 export default function AboutStrip() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-surface py-20 md:py-28">
+      {/* Decorative Rangoli watermark backdrop */}
+      <div
+        className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 h-80 w-80 opacity-[0.06] select-none text-[#C5A059]"
+        style={{
+          backgroundImage: "url(/theme/rangoli.svg)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "contain",
+        }}
+        aria-hidden="true"
+      />
       {/* Background blend artwork: Full-height, borderless, box-less image that dissolves into the section canvas */}
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[64%] select-none md:block lg:w-[58%]">
         <img
@@ -66,7 +77,7 @@ export default function AboutStrip() {
             title="Top trusted Construction and Design Company"
             className="mb-0"
           />
-          <div className="mt-3.5 h-0.5 w-16 rounded-full bg-brand" />
+          <div className="mt-3.5 h-0.5 w-16 rounded-full bg-gradient-to-r from-primary to-secondary" />
 
           <div className="mt-6 space-y-3 text-sm leading-relaxed text-slate-600 sm:text-[15px]">
             <p>
@@ -117,6 +128,14 @@ export default function AboutStrip() {
                 <br />
                 across India
               </span>
+            </div>
+
+            <div className="flex items-center pl-2">
+              <img
+                src="/theme/ghar-roshan.png"
+                alt="Ghar Roshan, Sapne Roshan"
+                className="h-12 sm:h-16 w-auto object-contain filter drop-shadow-sm"
+              />
             </div>
           </div>
         </div>

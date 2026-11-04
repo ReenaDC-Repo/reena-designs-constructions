@@ -76,21 +76,18 @@ export default function CookieBanner() {
       <div className="flex flex-col gap-3 border border-slate-200 bg-white/95 p-4 shadow-2xl shadow-slate-900/15 backdrop-blur-xl sm:flex-row sm:items-center sm:gap-4 sm:py-3 sm:pl-4 sm:pr-3">
         <span
           className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-full"
-          style={{ background: "linear-gradient(145deg,#FFE9D6,#FFD0AC)" }}
+          style={{ background: "linear-gradient(145deg, #FDF9EE, #F8E8B9)" }}
           aria-hidden="true"
         >
-          <Cookie size={19} strokeWidth={2} className="text-orange-600" />
+          <Cookie size={19} strokeWidth={2} className="text-secondary" />
         </span>
 
-        {/* Wording matches what the site actually does. It sets no analytics or
-            advertising cookies, so claiming "we use cookies to give you the
-            best experience" was both vague and inaccurate — and the link went
-            to /contact, where no policy existed. */}
+        {/* Wording matches what the site actually does. */}
         <p className="flex-1 text-[12.5px] leading-relaxed text-slate-600">
           This site stores one item in your browser to remember this choice. No tracking, no ads.{" "}
           <Link
             to="/cookies"
-            className="montserrat font-700 text-slate-800 underline decoration-orange-400 decoration-2 underline-offset-2 hover:text-orange-600"
+            className="montserrat font-700 text-slate-800 underline decoration-primary decoration-2 underline-offset-2 hover:text-primary"
           >
             Cookie Policy
           </Link>

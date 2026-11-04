@@ -23,10 +23,10 @@ export default function FilterTabs({ tabs, active, onSelect }: FilterTabsProps) 
             type="button"
             onClick={() => onSelect(t)}
             aria-pressed={isActive}
-            className={`montserrat font-700 border px-5 py-2.5 text-[13px] transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+            className={`montserrat font-700 border px-5 py-2.5 text-[13px] transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
               isActive
-                ? "border-navy bg-navy text-white"
-                : "border-slate-300 bg-white text-slate-600 hover:border-navy hover:text-navy"
+                ? "border-primary bg-primary text-neutral-deep shadow-sm"
+                : "border-slate-300 bg-white text-slate-600 hover:border-secondary hover:text-secondary"
             }`}
           >
             {t}

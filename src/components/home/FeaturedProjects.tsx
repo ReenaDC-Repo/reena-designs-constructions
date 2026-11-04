@@ -137,9 +137,22 @@ export default function FeaturedProjects() {
   }
 
   return (
-    <section id="featured-work" className="relative bg-navy overflow-hidden">
-      {/* Top background blend: smoothly continues from top blue/navy of services */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#111a2e] to-transparent" />
+    <section
+      id="featured-work"
+      className="relative overflow-hidden"
+      style={{
+        background: "linear-gradient(180deg, #141416 0%, #1C1B20 50%, #121214 100%)",
+        borderTop: "1px solid rgba(197, 160, 89, 0.3)",
+      }}
+    >
+      {/* Subtle warm architectural ambient glow */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-96 blur-3xl opacity-20"
+        style={{
+          background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(197,160,89,0.25) 0%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
 
       {/* Two Crossed Rolling Ribbons in high z-index over FEATURED WORK */}
       <div className="relative pt-4 md:pt-6">
@@ -160,7 +173,7 @@ export default function FeaturedProjects() {
       {/* Full-bleed showcase slider with slight top blend */}
       <div
         ref={regionRef}
-        className="relative h-[34rem] overflow-hidden bg-navy md:h-[44rem]"
+        className="relative h-[34rem] overflow-hidden bg-[#1A1203] md:h-[44rem]"
         role="region"
         aria-roledescription="carousel"
         aria-label="Featured projects"
@@ -175,7 +188,7 @@ export default function FeaturedProjects() {
       >
         {/* Soft top blend directly into carousel */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-navy via-navy/60 to-transparent z-10"
+          className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#1C1303] via-[#1C1303]/60 to-transparent z-10"
           aria-hidden="true"
         />
 
@@ -189,9 +202,7 @@ export default function FeaturedProjects() {
               }`}
               aria-hidden={!isActive}
             >
-              {/* Still frame — no zoom, no drift. The only motion in the
-                  slider is the cross-dissolve between one photograph and the
-                  next. */}
+              {/* Still frame */}
               <img
                 src={p.img}
                 alt={`${p.title} — 3D interior design by Reena Design & Construction`}
@@ -200,9 +211,9 @@ export default function FeaturedProjects() {
                 className="h-full w-full object-cover"
               />
 
-              {/* Gradient dissolve */}
+              {/* Gradient dissolve: warm antique bronze */}
               <div
-                className="absolute inset-0 bg-gradient-to-t from-navy via-navy/75 to-navy/10 md:bg-gradient-to-l md:from-navy md:via-navy/70 md:to-transparent"
+                className="absolute inset-0 bg-gradient-to-t from-[#241A05] via-[#241A05]/80 to-[#241A05]/20 md:bg-gradient-to-l md:from-[#241A05] md:via-[#241A05]/75 md:to-transparent"
                 aria-hidden="true"
               />
 
@@ -213,8 +224,8 @@ export default function FeaturedProjects() {
                     isActive ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
                   }`}
                 >
-                  <div className="montserrat font-700 mb-3 md:mb-4 flex items-center gap-3 text-[11px] tracking-[0.28em] uppercase text-orange-400">
-                    <span className="h-px w-8 bg-orange-400/70" aria-hidden="true" />
+                  <div className="montserrat font-700 mb-3 md:mb-4 flex items-center gap-3 text-[11px] tracking-[0.28em] uppercase text-gold-light">
+                    <span className="h-px w-8 bg-gold-light/70" aria-hidden="true" />
                     {p.type}
                   </div>
                   <h3 className="montserrat font-800 text-3xl leading-[1.1] text-white md:text-5xl">
@@ -225,7 +236,7 @@ export default function FeaturedProjects() {
                   </p>
                   <Link
                     to={PROJECT_URL}
-                    className="montserrat font-700 group mt-6 md:mt-8 inline-flex items-center gap-2 border-b-2 border-brand pb-1.5 text-[13px] text-white transition-colors duration-300 hover:text-orange-300"
+                    className="montserrat font-700 group mt-6 md:mt-8 inline-flex items-center gap-2 border-b-2 border-primary pb-1.5 text-[13px] text-white transition-colors duration-300 hover:text-gold-light"
                     tabIndex={isActive ? 0 : -1}
                   >
                     See our interior designs
@@ -242,23 +253,15 @@ export default function FeaturedProjects() {
           )
         })}
 
-        {/* Two quiet arrows are the only chrome on the slider.
-
-            No position tracker and no 01/08 counter: they were competing with
-            the photography for attention, and neither told the visitor
-            anything they needed. Position is still available to assistive tech
-            through each slide's aria-hidden state, and the slider can be
-            driven by swipe, arrow keys or these two buttons. */}
+        {/* Two quiet arrows are the only chrome on the slider. */}
         <div className={`${SITE_CONTAINER} pointer-events-none absolute inset-x-0 bottom-6 md:bottom-10 z-20`}>
           <div className="pointer-events-auto flex items-center gap-2 md:gap-3">
-            {/* Hidden only when the visitor has asked for reduced motion, in
-                which case nothing is moving and there is nothing to pause. */}
             {!reduceMotion && (
               <button
                 type="button"
                 onClick={() => setStopped((v) => !v)}
                 aria-label={stopped ? "Resume the project slideshow" : "Pause the project slideshow"}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 backdrop-blur-sm transition duration-300 hover:border-brand hover:bg-brand hover:text-white md:h-12 md:w-12"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 backdrop-blur-sm transition duration-300 hover:border-primary hover:bg-primary hover:text-neutral-deep md:h-12 md:w-12"
               >
                 {stopped
                   ? <Play size={16} strokeWidth={2} aria-hidden="true" />
@@ -269,7 +272,7 @@ export default function FeaturedProjects() {
               type="button"
               onClick={() => go(active - 1)}
               aria-label="Previous project"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 backdrop-blur-sm transition duration-300 hover:border-brand hover:bg-brand hover:text-white md:h-12 md:w-12"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 backdrop-blur-sm transition duration-300 hover:border-brand hover:bg-brand hover:text-neutral-deep md:h-12 md:w-12"
             >
               <ChevronLeft size={18} strokeWidth={2} aria-hidden="true" />
             </button>
@@ -277,25 +280,17 @@ export default function FeaturedProjects() {
               type="button"
               onClick={() => go(active + 1)}
               aria-label="Next project"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 backdrop-blur-sm transition duration-300 hover:border-brand hover:bg-brand hover:text-white md:h-12 md:w-12"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 backdrop-blur-sm transition duration-300 hover:border-primary hover:bg-primary hover:text-neutral-deep md:h-12 md:w-12"
             >
               <ChevronRight size={18} strokeWidth={2} aria-hidden="true" />
             </button>
           </div>
         </div>
 
-        {/* Position, given back as a rule rather than as dots or an 01/08
-            counter.
-
-            Those were removed deliberately — they competed with the
-            photography — but seven slides is well past the point where a
-            visitor can hold their place unaided, and nothing told them how
-            much work sat behind the slider. A hairline along the foot answers
-            both without putting the chrome back: the filled portion is how far
-            through the set you are. */}
+        {/* Position line */}
         <div className="absolute inset-x-0 bottom-0 z-20 h-px bg-white/15" aria-hidden="true">
           <div
-            className="h-full bg-brand transition-[width] duration-700 ease-out"
+            className="h-full bg-gradient-to-r from-primary to-secondary transition-[width] duration-700 ease-out"
             style={{ width: `${((active + 1) / PROJECTS.length) * 100}%` }}
           />
         </div>

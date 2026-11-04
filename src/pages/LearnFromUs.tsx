@@ -262,8 +262,8 @@ export default function LearnFromUs() {
                       <span
                         className={`mt-0.5 inline-flex h-7 w-7 flex-none items-center justify-center rounded-full border transition-all duration-300 ${
                           isOpen
-                            ? "rotate-45 border-orange-300 bg-orange-50 text-orange-600"
-                            : "border-slate-200 text-slate-500 group-hover:border-orange-300 group-hover:text-orange-500"
+                            ? "rotate-45 border-gold-light bg-gold-soft text-primary"
+                            : "border-slate-200 text-slate-500 group-hover:border-gold-light group-hover:text-primary"
                         }`}
                         aria-hidden="true"
                       >

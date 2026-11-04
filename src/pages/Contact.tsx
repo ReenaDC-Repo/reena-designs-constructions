@@ -394,6 +394,7 @@ export default function Contact() {
             <SectionTitle
               title="TELL US ABOUT YOUR PROJECT"
               align="left"
+              accentBar
               className="mb-8"
             />
 
@@ -484,8 +485,8 @@ export default function Contact() {
                 <div
                   className="mb-4 flex h-14 w-14 items-center justify-center rounded-full"
                   style={{
-                    background: "#fff4ef",
-                    border: "2px solid var(--color-brand)",
+                    background: "var(--color-gold-soft)",
+                    border: "2px solid var(--color-primary)",
                   }}
                 >
                   <svg
@@ -497,7 +498,7 @@ export default function Contact() {
                   >
                     <path
                       d="M4 12l6 6L20 6"
-                      stroke="var(--color-brand)"
+                      stroke="var(--color-primary)"
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"

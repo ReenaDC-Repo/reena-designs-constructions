@@ -193,11 +193,11 @@ export default function ChatBot() {
           type="button"
           onClick={() => setOpen(true)}
           aria-label="Open the assistant and ask a question"
-          className="group flex items-center gap-3 rounded-full border border-slate-200 bg-white/95 py-2 pl-2 pr-4 shadow-xl shadow-slate-900/10 backdrop-blur-md transition duration-300 hover:border-orange-300 hover:shadow-2xl sm:pr-5"
+          className="group flex items-center gap-3 rounded-full border border-slate-200 bg-white/95 py-2 pl-2 pr-4 shadow-xl shadow-slate-900/10 backdrop-blur-md transition duration-300 hover:border-primary hover:shadow-2xl sm:pr-5"
         >
           <span
             ref={faceRef}
-            className="chat-ping grad-navy relative inline-flex h-10 w-10 flex-none items-center justify-center rounded-full"
+            className="chat-ping relative inline-flex h-10 w-10 flex-none items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary"
           >
             <span className="flex items-center gap-1.5">
               {[0, 1].map((i) => (
@@ -205,7 +205,7 @@ export default function ChatBot() {
                   <span
                     ref={setPupil(i)}
                     className="h-1.5 w-1.5 rounded-full transition-transform duration-100 ease-out"
-                    style={{ background: "var(--color-navy)" }}
+                    style={{ background: "#0F0F12" }}
                   />
                 </span>
               ))}
@@ -234,26 +234,27 @@ export default function ChatBot() {
         >
           {/* Header */}
           <div
-            className="grad-navy relative flex items-center gap-3 px-4 py-3.5"
+            className="relative flex items-center gap-3 px-4 py-3.5"
+            style={{ background: "linear-gradient(135deg, #C5A059 0%, #DFCCA6 40%, #FF9E2C 100%)" }}
           >
-            <span className="relative inline-flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/10">
+            <span className="relative inline-flex h-9 w-9 flex-none items-center justify-center rounded-full bg-black/10">
               <span className="flex items-center gap-1">
                 {[2, 3].map((i) => (
                   <span key={i} className="relative inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-white">
                     <span
                       ref={setPupil(i)}
                       className="h-1 w-1 rounded-full transition-transform duration-100 ease-out"
-                      style={{ background: "var(--color-navy)" }}
+                      style={{ background: "#0F0F12" }}
                     />
                   </span>
                 ))}
               </span>
-              <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-navy bg-emerald-400" />
+              <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-[#C5A059] bg-emerald-500" />
             </span>
             <div className="flex-1">
-              <div className="montserrat font-800 text-[12.5px] text-white">Reena Assistant</div>
-              <div className="flex items-center gap-1.5 text-[10px] text-white/55">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              <div className="montserrat font-800 text-[12.5px] text-[#0F0F12]">Reena Assistant</div>
+              <div className="flex items-center gap-1.5 text-[10px] text-[#2D2106]">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
                 Automated · answers common questions
               </div>
             </div>
@@ -262,7 +263,7 @@ export default function ChatBot() {
               onClick={reset}
               aria-label="Start a new chat"
               title="Start over"
-              className="inline-flex h-7 w-7 items-center justify-center rounded-full text-white/50 transition hover:bg-white/10 hover:text-white"
+              className="inline-flex h-7 w-7 items-center justify-center rounded-full text-[#0F0F12]/70 transition hover:bg-black/10 hover:text-[#0F0F12]"
             >
               <RotateCcw size={13} strokeWidth={2.2} aria-hidden="true" />
             </button>
@@ -270,7 +271,7 @@ export default function ChatBot() {
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close the assistant"
-              className="inline-flex h-7 w-7 items-center justify-center rounded-full text-white/60 transition hover:bg-white/10 hover:text-white"
+              className="inline-flex h-7 w-7 items-center justify-center rounded-full text-[#0F0F12]/70 transition hover:bg-black/10 hover:text-[#0F0F12]"
             >
               <X size={15} strokeWidth={2.2} aria-hidden="true" />
             </button>
@@ -290,27 +291,27 @@ export default function ChatBot() {
               <div key={m.id} className={`chat-bubble-in flex gap-2 ${m.from === "user" ? "justify-end" : "justify-start"}`}>
                 {m.from === "bot" && (
                   <span
-                    className="grad-navy mt-auto mb-5 inline-flex h-6 w-6 flex-none items-center justify-center rounded-full"
+                    className="mt-auto mb-5 inline-flex h-6 w-6 flex-none items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary text-[#0F0F12]"
                     aria-hidden="true"
                   >
-                    <Sparkles size={11} strokeWidth={2.2} className="text-orange-400" />
+                    <Sparkles size={11} strokeWidth={2.2} />
                   </span>
                 )}
                 <div className={`flex max-w-[80%] flex-col ${m.from === "user" ? "items-end" : "items-start"}`}>
                   <div
                     className={`px-3.5 py-2.5 text-[12.5px] leading-relaxed shadow-sm ${
                       m.from === "user"
-                        ? "rounded-2xl rounded-br-md text-white"
-                        : "rounded-2xl rounded-bl-md border border-slate-200 bg-white text-slate-600"
+                        ? "rounded-2xl rounded-br-md text-[#0F0F12] font-medium"
+                        : "rounded-2xl rounded-bl-md border border-slate-200 bg-white text-slate-700"
                     }`}
-                    style={m.from === "user" ? { background: "var(--color-brand)" } : undefined}
+                    style={m.from === "user" ? { background: "linear-gradient(135deg, #C5A059 0%, #FF9E2C 100%)" } : undefined}
                   >
                     {m.text}
                     {m.link && (
                       <Link
                         to={m.link.href}
                         onClick={() => setOpen(false)}
-                        className="montserrat font-700 mt-2.5 inline-flex items-center gap-1 rounded-lg bg-orange-50 px-2.5 py-1.5 text-[11px] text-orange-600 transition hover:gap-2 hover:bg-orange-100"
+                        className="montserrat font-700 mt-2.5 inline-flex items-center gap-1 rounded-lg bg-amber-50 px-2.5 py-1.5 text-[11px] text-tertiary transition hover:gap-2 hover:bg-amber-100"
                       >
                         {m.link.label}
                         <ArrowRight size={11} strokeWidth={2.4} aria-hidden="true" />
@@ -325,10 +326,10 @@ export default function ChatBot() {
             {typing && (
               <div className="chat-bubble-in flex items-end gap-2">
                 <span
-                  className="grad-navy inline-flex h-6 w-6 flex-none items-center justify-center rounded-full"
+                  className="inline-flex h-6 w-6 flex-none items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary text-[#0F0F12]"
                   aria-hidden="true"
                 >
-                  <Sparkles size={11} strokeWidth={2.2} className="text-orange-400" />
+                  <Sparkles size={11} strokeWidth={2.2} />
                 </span>
                 <div className="flex items-center gap-1 rounded-2xl rounded-bl-md border border-slate-200 bg-white px-3.5 py-3 shadow-sm">
                   <span className="chat-dot h-1.5 w-1.5 rounded-full bg-slate-400" />
@@ -346,7 +347,7 @@ export default function ChatBot() {
                     key={c}
                     type="button"
                     onClick={() => ask(c)}
-                    className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:border-orange-300 hover:text-orange-600"
+                    className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-primary hover:text-secondary"
                   >
                     {c}
                   </button>
@@ -369,16 +370,13 @@ export default function ChatBot() {
               onChange={(e) => setDraft(e.target.value)}
               placeholder="Type your question…"
               aria-label="Type your question"
-              /* 16px on a phone. Under that, iOS Safari zooms the viewport in on
-                 focus and never zooms back out — the same trap `.field` and the
-                 hero search both fix deliberately, and this one was missed. */
-              className="min-w-0 flex-1 rounded-full bg-slate-100 px-4 py-2.5 text-base text-slate-700 outline-none ring-1 ring-transparent transition placeholder:text-slate-500 focus:bg-white focus:ring-orange-300 sm:text-[12.5px]"
+              className="min-w-0 flex-1 rounded-full bg-slate-100 px-4 py-2.5 text-base text-slate-700 outline-none ring-1 ring-transparent transition placeholder:text-slate-500 focus:bg-white focus:ring-secondary/30 sm:text-[12.5px]"
             />
             <button
               type="submit"
               disabled={!draft.trim() || typing}
               aria-label="Send message"
-              className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-full text-white shadow-md transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40 bg-brand"
+              className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-full text-[#0F0F12] shadow-md transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40 bg-gradient-to-r from-primary to-secondary"
             >
               <Send size={15} strokeWidth={2.2} aria-hidden="true" />
             </button>

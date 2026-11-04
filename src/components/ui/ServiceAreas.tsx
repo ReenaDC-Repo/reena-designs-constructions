@@ -34,14 +34,14 @@ export default function ServiceAreas({
   compact?: boolean
 } = {}) {
   return (
-    <section className="relative overflow-hidden border-y border-hairline bg-[#f7f7f7] py-16 lg:py-20">
+    <section className="relative overflow-hidden border-y border-hairline bg-[#fcf8f8] py-16 lg:py-20">
       {/* The drafting grid used across the site, faded out at the edges. */}
       <div
         className="pointer-events-none absolute inset-0 opacity-60"
         aria-hidden="true"
         style={{
           backgroundImage:
-            "linear-gradient(to right, rgba(26,39,68,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(26,39,68,0.05) 1px, transparent 1px)",
+            "linear-gradient(to right, rgba(197,160,89,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(197,160,89,0.08) 1px, transparent 1px)",
           backgroundSize: "44px 44px",
           maskImage: "radial-gradient(100% 80% at 50% 30%, #000 30%, transparent 100%)",
           WebkitMaskImage: "radial-gradient(100% 80% at 50% 30%, #000 30%, transparent 100%)",
@@ -52,7 +52,7 @@ export default function ServiceAreas({
         <div className="montserrat font-800 mb-4 flex items-center gap-3 text-[13px] uppercase tracking-[0.2em] text-brand-ink">
           <MapPin size={17} strokeWidth={2.2} aria-hidden="true" />
           Areas We Serve
-          <span className="h-px flex-1 bg-gradient-to-r from-orange-400 to-transparent" />
+          <span className="h-px flex-1 bg-gradient-to-r from-primary to-transparent" />
         </div>
 
         <h2 className="montserrat font-800 max-w-3xl text-xl leading-snug text-navy md:text-2xl">

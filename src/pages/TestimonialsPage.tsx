@@ -38,16 +38,16 @@ export default function TestimonialsPage() {
             size={28}
             strokeWidth={2}
             aria-hidden="true"
-            className="mb-6 rotate-180 text-orange-200"
+            className="mb-6 rotate-180 text-gold-light/60"
           />
-          <SectionTitle title="COMING SOON" className="mb-4" />
+          <SectionTitle title="COMING SOON" accentBar className="mb-4" />
           <p className="text-sm leading-7 text-slate-500">
             We are collecting accounts from our clients in their own words. Their stories will be
             published here shortly.
           </p>
           <Link
             to="/our-work"
-            className="montserrat font-700 group mt-8 inline-flex items-center gap-2 border-b-2 border-brand pb-1.5 text-[13px] text-navy transition-colors duration-300 hover:text-brand"
+            className="montserrat font-700 group mt-8 inline-flex items-center gap-2 border-b-2 border-primary pb-1.5 text-[13px] text-navy transition-colors duration-300 hover:text-primary"
           >
             Browse our work in the meantime
             <ArrowRight

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Central 8-petal Lotus / Mandala -->
+  <circle cx="100" cy="100" r="12" stroke="currentColor" stroke-width="1.5" fill="none" />
+  <circle cx="100" cy="100" r="5" fill="currentColor" />
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <!-- 8 Petals Inner -->
+    <path d="M100 88 C94 80 88 80 88 88 C88 94 94 100 100 100 C106 100 112 94 112 88 C112 80 106 80 100 88 Z" />
+    <path d="M100 112 C94 120 88 120 88 112 C88 106 94 100 100 100 C106 100 112 106 112 112 C112 120 106 120 100 112 Z" />
+    <path d="M88 100 C80 94 80 88 88 88 C94 88 100 94 100 100 C100 106 94 112 88 112 C80 112 80 106 88 100 Z" />
+    <path d="M112 100 C120 94 120 88 112 88 C106 88 100 94 100 100 C100 106 106 112 112 112 C120 112 120 106 112 100 Z" />
+    
+    <!-- Outer concentric star points -->
+    <circle cx="100" cy="100" r="34" stroke-dasharray="2 4" stroke-width="1" />
+    <circle cx="100" cy="100" r="52" stroke-width="1.5" />
+    <circle cx="100" cy="100" r="68" stroke-dasharray="4 3" stroke-width="1" />
+    <circle cx="100" cy="100" r="82" stroke-width="1.5" />
+  </g>
+  <!-- 16 Radial Floral Petals Outer Ring -->
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(0.0 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(0.0 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(22.5 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(22.5 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(45.0 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(45.0 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(67.5 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(67.5 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(90.0 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(90.0 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(112.5 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(112.5 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(135.0 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(135.0 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(157.5 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(157.5 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(180.0 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(180.0 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(202.5 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(202.5 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(225.0 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(225.0 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(247.5 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(247.5 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(270.0 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(270.0 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(292.5 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(292.5 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(315.0 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(315.0 100 100)" />
+    <path d="M100 18 Q106 32 100 48 Q94 32 100 18 Z" transform="rotate(337.5 100 100)" />
+    <circle cx="100" cy="14" r="2" fill="currentColor" transform="rotate(337.5 100 100)" />
+  </g>
+</svg>

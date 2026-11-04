@@ -26,6 +26,8 @@ interface SectionTitleProps {
   accentBar?: boolean
   /** Inverts the palette for use on a dark section. */
   onDark?: boolean
+  /** Shows festive diya decor alongside the heading */
+  festive?: boolean
   /** See the note above. Defaults to the interior-page step. */
   level?: "display" | "section"
   /** Trailing margin. Some callers sit directly above their own copy block. */
@@ -61,24 +63,43 @@ export default function SectionTitle({
   align = "center",
   accentBar = false,
   onDark = false,
+  festive = true,
   level = "section",
   className = "mb-10",
 }: SectionTitleProps) {
   const centered = align === "center"
 
   return (
-    <div className={`${className} ${centered ? "text-center" : "text-left"}`}>
+    <div className={`${className} ${centered ? "text-center" : "text-left"} relative`}>
       {eyebrow && (
-        <p
-          className={`montserrat font-700 mb-2 text-[11px] tracking-[0.3em] uppercase ${
-            onDark ? "text-orange-400" : "text-brand-ink"
-          }`}
-        >
-          {eyebrow}
-        </p>
+        <div className={`flex items-center gap-2 mb-2 ${centered ? "justify-center" : "justify-start"}`}>
+          {festive && (
+            <img
+              src="/theme/diya-decor.png"
+              alt=""
+              aria-hidden="true"
+              className="h-5 w-auto object-contain filter drop-shadow-[0_1px_4px_rgba(255,158,44,0.4)]"
+            />
+          )}
+          <p
+            className={`montserrat font-700 text-[11px] tracking-[0.3em] uppercase ${
+              onDark ? "text-gold-light" : "text-brand-ink"
+            }`}
+          >
+            {eyebrow}
+          </p>
+          {festive && centered && (
+            <img
+              src="/theme/diya-decor.png"
+              alt=""
+              aria-hidden="true"
+              className="h-5 w-auto -scale-x-100 object-contain filter drop-shadow-[0_1px_4px_rgba(255,158,44,0.4)]"
+            />
+          )}
+        </div>
       )}
       <div className={`section-title-row ${centered ? "" : "justify-start"}`}>
-        {accentBar && <div className="h-0.5 w-10 flex-none rounded-full bg-brand" />}
+        {accentBar && <div className="h-0.5 w-11 flex-none rounded-full bg-gradient-to-r from-primary to-secondary" />}
         <h2
           className={`${SIZE[level]} ${isAllCaps(title) ? "tracking-wide" : ""} ${
             onDark ? "text-white" : "text-navy"

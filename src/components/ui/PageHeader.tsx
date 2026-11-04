@@ -32,17 +32,43 @@ interface PageHeaderProps {
 export default function PageHeader({ title, subtitle, crumbs, backdrop = false, scene, strip }: PageHeaderProps) {
   if (!backdrop) {
     return (
-      <div className="px-6 py-10" style={{ background: "#f7f7f7", borderBottom: "1px solid #e8e8e8" }}>
-        <div className={`${SITE_CONTAINER} page-header-intro`}>
-          <Breadcrumb items={crumbs} />
-          <h1 className="montserrat font-900 text-3xl text-navy md:text-4xl">
-            {title}
-            {subtitle && (
-              <span className="font-600 [font-family:Inter,sans-serif] mt-2 block text-base normal-case tracking-normal text-slate-600 md:text-lg">
-                {subtitle}
-              </span>
-            )}
-          </h1>
+      <div
+        className="px-6 py-10 sm:py-12"
+        style={{
+          background: "linear-gradient(180deg, #FAF7EE 0%, #F5EED8 100%)",
+          borderBottom: "1px solid #E6D8B5",
+        }}
+      >
+        <div className={`${SITE_CONTAINER} relative flex flex-col md:flex-row md:items-center md:justify-between gap-6`}>
+          <div className="page-header-intro max-w-2xl">
+            <Breadcrumb items={crumbs} />
+            <h1 className="montserrat font-900 text-3xl text-navy md:text-4xl">
+              {title}
+              {subtitle && (
+                <span className="font-600 [font-family:Inter,sans-serif] mt-2 block text-base normal-case tracking-normal text-slate-700 md:text-lg">
+                  {subtitle}
+                </span>
+              )}
+            </h1>
+            <div className="mt-3.5 h-1 w-14 rounded-full bg-gradient-to-r from-primary to-secondary" aria-hidden="true" />
+          </div>
+
+          <div className="flex flex-none items-center gap-3 self-start sm:self-center">
+            {/* Transparent background-removed Diya decor with marigold ring */}
+            <img
+              src="/theme/diya-decor.png"
+              alt=""
+              aria-hidden="true"
+              className="hidden sm:block h-14 sm:h-16 w-auto object-contain filter drop-shadow-[0_4px_12px_rgba(255,158,44,0.35)]"
+            />
+            <div className="rounded-2xl border border-[#C5A059]/35 bg-white/80 p-2.5 sm:p-3 shadow-md shadow-[#C5A059]/10 backdrop-blur-sm">
+              <img
+                src="/theme/ghar-roshan.png"
+                alt="Ghar Roshan, Sapne Roshan"
+                className="h-12 sm:h-16 md:h-18 w-auto object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -51,7 +77,10 @@ export default function PageHeader({ title, subtitle, crumbs, backdrop = false, 
   return (
     <div
       className="relative isolate overflow-hidden"
-      style={{ background: "linear-gradient(160deg, var(--color-navy) 0%, #24365c 55%, #1e2d4e 100%)" }}
+      style={{
+        background: "linear-gradient(160deg, #18140D 0%, #262015 50%, #15110A 100%)",
+        borderBottom: "2px solid #C5A059",
+      }}
     >
       {scene ? (
         /*
@@ -108,21 +137,41 @@ export default function PageHeader({ title, subtitle, crumbs, backdrop = false, 
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "linear-gradient(to right, rgba(26,39,68,0.99) 0%, rgba(26,39,68,0.92) 26%, rgba(26,39,68,0.62) 55%, rgba(26,39,68,0.24) 80%, transparent 100%)",
+            "linear-gradient(to right, rgba(42,31,6,0.98) 0%, rgba(42,31,6,0.92) 26%, rgba(42,31,6,0.62) 55%, rgba(42,31,6,0.24) 80%, transparent 100%)",
         }}
         aria-hidden="true"
       />
 
-      <div className={`${SITE_CONTAINER} page-header-intro relative py-10 md:py-12 lg:py-14`}>
-        <Breadcrumb items={crumbs} onDark />
-        <h1 className="montserrat font-900 text-3xl text-white md:text-4xl lg:text-5xl">
-          {title}
-          {subtitle && (
-            <span className="font-600 [font-family:Inter,sans-serif] mt-3 block text-base normal-case tracking-normal text-white/80 md:text-lg">
-              {subtitle}
-            </span>
-          )}
-        </h1>
+      <div className={`${SITE_CONTAINER} relative py-10 md:py-12 lg:py-14 flex flex-col md:flex-row md:items-center md:justify-between gap-6`}>
+        <div className="page-header-intro max-w-2xl">
+          <Breadcrumb items={crumbs} onDark />
+          <h1 className="montserrat font-900 text-3xl text-white md:text-4xl lg:text-5xl">
+            {title}
+            {subtitle && (
+              <span className="font-600 [font-family:Inter,sans-serif] mt-3 block text-base normal-case tracking-normal text-white/80 md:text-lg">
+                {subtitle}
+              </span>
+            )}
+          </h1>
+          <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-primary to-secondary" aria-hidden="true" />
+        </div>
+
+        <div className="flex flex-none items-center gap-3 self-start sm:self-center">
+          {/* Transparent background-removed Diya decor */}
+          <img
+            src="/theme/diya-decor.png"
+            alt=""
+            aria-hidden="true"
+            className="hidden sm:block h-14 sm:h-16 w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(255,158,44,0.45)]"
+          />
+          <div className="rounded-2xl border border-[#C5A059]/40 bg-white/10 p-2.5 sm:p-3 shadow-lg shadow-black/30 backdrop-blur-md">
+            <img
+              src="/theme/ghar-roshan-light.png"
+              alt="Ghar Roshan, Sapne Roshan"
+              className="h-12 sm:h-16 md:h-18 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(197,160,89,0.4)]"
+            />
+          </div>
+        </div>
       </div>
     </div>
   )

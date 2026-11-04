@@ -45,6 +45,7 @@ export default function GalleryPage({ route, images, intro }: GalleryPageProps) 
 
       <section className={`${SITE_CONTAINER} py-14 lg:py-16`}>
         <h2 className="montserrat font-800 text-xl text-navy md:text-2xl">{readable}</h2>
+        <div className="mt-2.5 h-0.5 w-10 rounded-full bg-gradient-to-r from-primary to-secondary" />
         {intro && <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-500">{intro}</p>}
       </section>
 

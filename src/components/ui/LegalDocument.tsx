@@ -35,7 +35,7 @@ export default function LegalDocument({
         <ol className="flex flex-col gap-1.5 border-l border-hairline pl-4 text-[13px] leading-snug">
           {sections.map((s, i) => (
             <li key={s.id}>
-              <a href={`#${s.id}`} className="text-slate-500 transition-colors hover:text-brand-ink">
+              <a href={`#${s.id}`} className="text-slate-500 transition-colors hover:text-primary">
                 {i + 1}. {s.title}
               </a>
             </li>
@@ -48,7 +48,7 @@ export default function LegalDocument({
           Effective {effective}
         </p>
 
-        <div className="mb-12 border-l-2 border-brand bg-surface p-5 text-sm leading-7 text-slate-600">
+        <div className="mb-12 border-l-2 border-primary bg-surface p-5 text-sm leading-7 text-slate-600">
           {summary}
         </div>
 
@@ -56,7 +56,7 @@ export default function LegalDocument({
           {sections.map((s, i) => (
             <section key={s.id} id={s.id} className="scroll-mt-28">
               <h2 className="montserrat font-800 mb-4 text-base text-navy">
-                <span className="mr-2 text-brand">{i + 1}.</span>
+                <span className="mr-2 text-primary">{i + 1}.</span>
                 {s.title}
               </h2>
               <div className="legal-body flex flex-col gap-3.5 text-sm leading-7 text-slate-600">
@@ -89,7 +89,7 @@ export default function LegalDocument({
 /** A bulleted list styled for legal copy. */
 export function LegalList({ items }: { items: ReactNode[] }) {
   return (
-    <ul className="flex list-disc flex-col gap-2 pl-5 marker:text-brand">
+    <ul className="flex list-disc flex-col gap-2 pl-5 marker:text-primary">
       {items.map((item, i) => (
         <li key={i}>{item}</li>
       ))}

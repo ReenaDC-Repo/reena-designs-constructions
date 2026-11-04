@@ -55,7 +55,7 @@ export default function NotFound() {
           className="pointer-events-none absolute inset-0 opacity-70"
           style={{
             backgroundImage:
-              "linear-gradient(to right, rgba(26,39,68,0.055) 1px, transparent 1px), linear-gradient(to bottom, rgba(26,39,68,0.055) 1px, transparent 1px)",
+              "linear-gradient(to right, rgba(77,7,20,0.055) 1px, transparent 1px), linear-gradient(to bottom, rgba(77,7,20,0.055) 1px, transparent 1px)",
             backgroundSize: "44px 44px",
             maskImage: "radial-gradient(110% 90% at 50% 40%, #000 35%, transparent 100%)",
             WebkitMaskImage: "radial-gradient(110% 90% at 50% 40%, #000 35%, transparent 100%)",

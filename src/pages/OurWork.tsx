@@ -114,13 +114,13 @@ export default function OurWork() {
             />
 
             <span
-              className="h-0.5 w-9 rounded-full bg-brand transition-all duration-500 group-hover:w-14"
+              className="h-0.5 w-9 rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 group-hover:w-14"
               aria-hidden="true"
             />
             <h3 className="montserrat font-800 mt-3.5 text-[15px] leading-snug text-white">{label}</h3>
             <p className="mt-1.5 text-[12.5px] leading-relaxed text-white/65">{blurb}</p>
 
-            <span className="montserrat font-700 mt-3 inline-flex items-center gap-1 text-[12px] text-orange-300 transition duration-500 md:translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+            <span className="montserrat font-700 mt-3 inline-flex items-center gap-1 text-[12px] text-gold-light transition duration-500 md:translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 group-hover:text-primary">
               View gallery
               <ArrowUpRight size={13} strokeWidth={2.4} aria-hidden="true" />
             </span>

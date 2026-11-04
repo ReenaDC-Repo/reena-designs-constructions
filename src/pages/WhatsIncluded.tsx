@@ -286,7 +286,7 @@ export default function WhatsIncluded() {
                   </span>
 
                   <span
-                    className="h-0.5 w-9 rounded-full bg-brand transition-all duration-500 group-hover:w-14"
+                    className="h-0.5 w-9 rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 group-hover:w-14"
                     aria-hidden="true"
                   />
 
