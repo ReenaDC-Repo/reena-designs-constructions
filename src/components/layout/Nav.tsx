@@ -134,12 +134,8 @@ export default function Nav() {
       className={`fixed top-0 right-0 left-0 z-50 border-0 transition-all duration-300 ${
         hasBg
           ? "bg-white/95 shadow-[0_8px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl"
-          : "bg-white/10 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.25)] md:bg-transparent md:backdrop-blur-none md:shadow-none"
+          : "liquid-glass-gold backdrop-blur-2xl md:bg-transparent md:backdrop-blur-none md:shadow-none"
       }`}
-      style={!hasBg ? {
-        background: "linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 100%)",
-        boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.28)",
-      } : undefined}
     >
       <div className={`${SITE_CONTAINER} flex items-center justify-between py-1.5`}>
         {/* Logo and Ghar Roshan Campaign */}

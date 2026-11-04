@@ -36,11 +36,12 @@ export default function Hero() {
   useAutoplayVideo(ambientRef, src, isPhone && !blocked)
 
   return (
-    // Video starts flush at top on mobile so it seamlessly shows through
-    // the liquid glassmorphic floating nav bar.
+    // On mobile: Video has refined top padding so the animated golden liquid glass
+    // nav floats seamlessly above the video with breathing room.
+    // On md+: 100svh full-bleed background showreel.
     <section
       id="home"
-      className="relative w-full overflow-hidden bg-black pt-0 md:h-[100svh] md:min-h-[100svh]"
+      className="relative w-full overflow-hidden bg-black pt-14 sm:pt-16 md:pt-0 md:h-[100svh] md:min-h-[100svh]"
     >
       {/* Video Container: Natural 16:9 aspect on mobile; full-bleed on desktop */}
       <div className="relative aspect-video w-full overflow-hidden md:aspect-auto md:absolute md:inset-0 md:h-full">
